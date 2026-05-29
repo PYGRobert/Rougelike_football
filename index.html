@@ -20,7 +20,6 @@
             --highlight-bg: #5a4a1a;
             --output-bg: rgba(5, 15, 5, 0.85);
         }
-
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             background: #1a3a1a;
@@ -30,7 +29,6 @@
             -webkit-tap-highlight-color: transparent;
             user-select: none; -webkit-user-select: none;
         }
-
         #game-container {
             width: 100%; max-width: 440px;
             background: linear-gradient(180deg, #2e5a1a 0%, #1a3e0e 100%);
@@ -42,14 +40,12 @@
             position: relative; overflow: hidden;
             min-height: 92vh; max-height: 98vh;
         }
-
         #game-container::before {
             content: ""; position: absolute; top: 0; left: 0;
             width: 100%; height: 100%;
             background: radial-gradient(circle at 50% 50%, #3a6a1e 0%, #2d5a1e 60%);
             opacity: 0.3; pointer-events: none; z-index: 0;
         }
-
         .fullscreen-panel {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(8,22,8,0.96);
@@ -58,7 +54,6 @@
             transition: opacity 0.35s ease, transform 0.35s ease;
             padding: 16px;
         }
-
         .hidden-panel { opacity: 0; pointer-events: none; transform: scale(0.95); }
         .title { font-size: 2.4rem; font-weight: 900; color: #f7e05e; text-shadow: 0 0 14px #c9a227; margin-bottom: 4px; text-align: center; }
         .subtitle { color: #f0e6b2; font-size: 0.95rem; margin-bottom: 20px; text-align: center; }
@@ -82,18 +77,15 @@
         .btn-continue { background: linear-gradient(180deg, #c9a020 0%, #8a6c10 100%) !important; border: 2px solid #e0b830 !important; box-shadow: 0 4px 0 #5a3e08 !important; color: #fff !important; }
         .btn-attack { background: linear-gradient(180deg, #c43a3a 0%, #8a2020 100%) !important; border: 2px solid #e85555 !important; box-shadow: 0 4px 0 #4a1010 !important; }
         .btn-defend { background: linear-gradient(180deg, #3a6ac4 0%, #20408a 100%) !important; border: 2px solid #5588e8 !important; box-shadow: 0 4px 0 #10204a !important; }
-
         #header {
             display: flex; justify-content: space-between; align-items: center;
             background: rgba(0,0,0,0.35); border-radius: 14px;
             padding: 7px 8px; margin-bottom: 4px; backdrop-filter: blur(8px);
             border: 1px solid #6b8c42; gap: 3px; position: relative; z-index: 2; flex-wrap: wrap;
         }
-
         .header-item { text-align: center; color: #f0e6b2; font-size: 0.7rem; flex: 1; min-width: 40px; }
         .header-item span { display: block; font-size: 1.15rem; font-weight: bold; color: #ffffff; }
         #morale-emoji { font-size: 1.1rem; margin-left: 2px; display: inline-block; }
-
         #simple-progress-bar {
             display: flex; align-items: center; justify-content: space-between;
             background: rgba(0,0,0,0.4); border-radius: 14px;
@@ -101,7 +93,6 @@
             font-size: 0.85rem; color: #f0e6b2; position: relative; z-index: 2; flex-wrap: wrap; gap: 4px;
         }
         #simple-progress-bar span { display: flex; align-items: center; gap: 3px; font-size: 0.85rem; }
-
         #action-bar {
             display: flex; justify-content: space-around; align-items: center;
             margin: 4px 0; z-index: 2;
@@ -112,7 +103,18 @@
             cursor: pointer; transition: 0.1s; white-space: nowrap;
         }
         .action-btn:active { background: #5e8a30; }
-
+        #match-score-display {
+            display: none; text-align: center; padding: 8px 0; margin: 2px 0;
+            background: rgba(0,0,0,0.55); border-radius: 14px;
+            border: 2px solid #4a6b3a; align-items: center; justify-content: center;
+            position: relative; z-index: 2;
+        }
+        .score-team-label { font-size: 0.75rem; color: #999; margin: 0 4px; vertical-align: middle; }
+        .score-num { font-size: 3rem; font-weight: 900; margin: 0 8px; vertical-align: middle; }
+        .score-colon { font-size: 2.2rem; color: #666; vertical-align: middle; }
+        .score-leading { color: #4dff4d; text-shadow: 0 0 12px #33cc33; }
+        .score-trailing { color: #ff4444; text-shadow: 0 0 12px #cc2222; }
+        .score-tied { color: #ffffff; }
         #output-area {
             flex: 1; background: var(--output-bg); border-radius: 14px;
             padding: 10px; overflow-y: auto; margin: 3px 0;
@@ -133,18 +135,7 @@
         .big-result { font-size: 1.4rem; font-weight: 900; padding: 8px 0; text-align: center; letter-spacing: 1px; }
         .big-result.player-win { color: #4dff4d; text-shadow: 0 0 14px #33cc33; }
         .big-result.opponent-win { color: #ff4444; text-shadow: 0 0 14px #cc2222; }
-
-        .score-board {
-            display: flex; justify-content: center; align-items: center;
-            font-size: 2rem; font-weight: 900; margin: 6px 0; padding: 4px;
-            border-radius: 10px; background: rgba(0,0,0,0.5);
-        }
-        .score-board.gold { color: #f7e05e; }
-        .score-board.red { color: #ff4444; }
-        .score-board.white { color: #ffffff; }
-
         #controls { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; padding: 5px 0; position: relative; z-index: 2; }
-
         .dice-area { display: flex; justify-content: center; gap: 14px; margin: 6px 0; flex-wrap: wrap; }
         .dice-box {
             font-size: 2rem; font-weight: bold; text-align: center;
@@ -155,13 +146,11 @@
         .dice-box.player-dice { border-color: #f7e05e; color: #f5e56c; }
         .dice-box.opponent-dice { border-color: #ff6666; color: #ff7777; }
         .dice-box.highlight { background: #5a4a1a; color: #ffd966; box-shadow: 0 0 16px #ff9900; border: 2px solid #ffcc00; transform: scale(1.08); }
-
         .vs-display {
             display: flex; justify-content: space-around; font-weight: bold;
             background: #1e2e1e; border-radius: 8px; padding: 8px; margin: 6px 0;
             color: #f0e6b2; font-size: 0.9rem; text-align: center;
         }
-
         @keyframes fadeIn { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:translateY(0); } }
         .fade-in { animation: fadeIn 0.25s ease; }
         .goal-overlay {
@@ -172,14 +161,12 @@
         }
         .life-loss { animation: flashRed 0.5s ease 2; }
         @keyframes flashRed { 0%,100%{ color:#ff4444; } 50%{ color:#ffffff; } }
-
         .result-card {
             background: rgba(0,0,0,0.88); border: 2px solid #f7e05e; border-radius: 14px;
             padding: 16px; text-align: center; width: 82%; margin-bottom: 14px;
         }
         .result-score { font-size: 2.5rem; font-weight: bold; color: #ffffff; margin: 8px 0; }
         .result-label { color: #f0e6b2; font-size: 1.1rem; }
-
         .shop-item {
             background: rgba(46,90,30,0.9); border: 2px solid #8bb84e; border-radius: 12px;
             padding: 12px; margin: 6px auto; width: 90%; display: flex;
@@ -190,12 +177,10 @@
         .item-name { color: #f7e05e; font-weight: bold; font-size: 0.9rem; }
         .item-desc { color: #e0d7b0; font-size: 0.73rem; word-break: break-word; }
         .item-price { color: #ffd966; font-weight: bold; white-space: nowrap; font-size: 0.85rem; }
-
         .alloc-row { display: flex; justify-content: space-between; width: 80%; margin: 10px 0; align-items: center; }
         .alloc-label { color: #f7e05e; font-weight: bold; font-size: 1.1rem; }
         .alloc-val { color: #fff; font-weight: bold; min-width: 20px; text-align: center; font-size: 1.3rem; }
         .points-left { color: #fff; margin-bottom: 14px; font-size: 1.1rem; }
-
         .talent-entry, .skill-entry, .item-entry {
             margin: 8px auto; color: #f5e7b3; padding: 6px; border-radius: 8px;
             background: rgba(20,40,20,0.8); max-width: 85%;
@@ -206,7 +191,6 @@
             width: 24px; height: 24px; line-height: 24px; text-align: center;
             font-weight: bold; margin-right: 6px;
         }
-
         .tactics-option {
             display: flex; align-items: center; justify-content: space-between;
             width: 85%; padding: 10px 14px; margin: 6px auto;
@@ -215,32 +199,44 @@
             font-weight: bold; font-size: 0.9rem; transition: 0.1s;
         }
         .tactics-option:active { background: #4a6e2a; transform: scale(0.97); }
-
         .tactic-card {
             background: rgba(0,0,0,0.8); border: 2px solid #f7e05e; border-radius: 16px;
             padding: 14px; margin: 10px; width: 85%; text-align: center;
         }
         .tactic-card h3 { color: #f7e05e; margin-bottom: 6px; }
         .tactic-card .desc { color: #e0d7b0; font-size: 0.85rem; }
-
         .key-match-badge {
             position: absolute; top: 8px; right: 8px; z-index: 50;
             background: #ff4444; color: #fff; padding: 4px 10px; border-radius: 20px;
             font-weight: bold; font-size: 0.8rem; animation: pulse 1.5s infinite;
         }
         @keyframes pulse { 0%,100%{transform:scale(1);} 50%{transform:scale(1.08);} }
+        .penalty-area {
+            margin: 8px 0; padding: 10px; background: rgba(0,0,0,0.4);
+            border-radius: 12px; border: 1px solid #4a6b3a;
+        }
+        .penalty-row {
+            display: flex; justify-content: center; gap: 6px; margin: 4px 0; flex-wrap: wrap;
+        }
+        .penalty-label { text-align: center; font-size: 0.8rem; margin-bottom: 2px; }
+        .penalty-dice {
+            font-size: 1.1rem; min-width: 38px; padding: 4px 6px;
+            font-weight: bold; text-align: center; border-radius: 8px;
+            border: 2px solid #8bb84e; transition: all 0.3s;
+        }
+        .penalty-dice.pd-player { border-color: #f7e05e; color: #f5e56c; }
+        .penalty-dice.pd-opp { border-color: #ff6666; color: #ff7777; }
+        .penalty-dice.highlight { background: #5a4a1a; color: #ffd966; box-shadow: 0 0 12px #ff9900; border-color: #ffcc00; }
     </style>
 </head>
 <body>
 <div id="game-container">
-    <!-- 面板区域 -->
     <div id="cover-panel" class="fullscreen-panel">
         <div class="title">⚽ 冠军之路</div>
         <div class="subtitle">文字 Roguelike 足球游戏</div>
         <input type="text" id="player-name-input" class="input-name" placeholder="输入你的名字" maxlength="12">
         <button class="btn btn-confirm" id="btn-start-game">开始生涯</button>
     </div>
-
     <div id="intro-panel" class="fullscreen-panel hidden-panel">
         <div style="font-size:1.6rem;color:#f7e05e;margin-bottom:8px;">📖 玩法简介</div>
         <div style="color:#f0e6b2;font-size:0.85rem;text-align:center;max-width:85%;line-height:1.7;max-height:55vh;overflow-y:auto;">
@@ -257,7 +253,6 @@
         </div>
         <button class="btn btn-confirm" id="btn-close-intro" style="margin-top:14px;">确认，开始分配属性</button>
     </div>
-
     <div id="alloc-panel" class="fullscreen-panel hidden-panel">
         <div style="font-size:1.6rem;color:#f7e05e;margin-bottom:8px;">⚖️ 分配属性 (面数)</div>
         <div class="points-left">剩余点数: <span id="points-remaining">5</span></div>
@@ -276,1056 +271,533 @@
         <div style="color:#c0b87a;font-size:0.8rem;margin-bottom:8px;">单项上限15</div>
         <button class="btn btn-confirm" id="btn-confirm-alloc" style="margin-top:16px;" disabled>确认</button>
     </div>
-
     <div id="skill-select-panel" class="fullscreen-panel hidden-panel">
         <div style="font-size:1.6rem;color:#f7e05e;margin-bottom:8px;">✨ 选择初始技能</div>
         <div id="skill-options" style="width:90%;"></div>
     </div>
-
     <div id="talent-view-panel" class="fullscreen-panel hidden-panel">
         <div style="font-size:1.6rem;color:#f7e05e;margin-bottom:8px;">⭐ 我的天赋</div>
         <div id="talent-list" style="width:80%;text-align:center;overflow-y:auto;"></div>
         <button class="btn" id="btn-close-talents" style="margin-top:14px;">关闭</button>
     </div>
-
     <div id="skill-view-panel" class="fullscreen-panel hidden-panel">
         <div style="font-size:1.6rem;color:#f7e05e;margin-bottom:8px;">✨ 我的技能</div>
         <div id="skill-list" style="width:80%;text-align:center;overflow-y:auto;"></div>
         <button class="btn" id="btn-close-skills" style="margin-top:14px;">关闭</button>
     </div>
-
     <div id="item-view-panel" class="fullscreen-panel hidden-panel">
         <div style="font-size:1.6rem;color:#f7e05e;margin-bottom:8px;">🧪 我的物品</div>
         <div id="item-list" style="width:80%;text-align:center;overflow-y:auto;"></div>
         <button class="btn" id="btn-close-items" style="margin-top:14px;">关闭</button>
     </div>
-
     <div id="tactics-panel" class="fullscreen-panel hidden-panel">
         <div style="font-size:1.5rem;color:#f7e05e;margin-bottom:6px;">📋 赛前战术布置</div>
         <div style="color:#f0e6b2;font-size:0.8rem;margin-bottom:10px;text-align:center;">选择你的战术（电脑将根据类型选择）</div>
         <div id="tactics-options-container" style="width:90%;display:flex;flex-direction:column;align-items:center;"></div>
     </div>
-
-    <!-- 游戏主UI -->
     <div id="header">
         <div class="header-item">⚔️进攻面 <span id="atk-val">5</span></div>
         <div class="header-item">🛡️防守面 <span id="def-val">5</span></div>
         <div class="header-item">⚡体能 <span id="stam-val">20/20</span></div>
         <div class="header-item">士气 <span id="morale-val">0</span><span id="morale-emoji"></span></div>
     </div>
-
     <div id="simple-progress-bar">
         <span>🏆<span id="league-phase-display">乙级联赛</span></span>
         <span>📅<span id="match-progress-display">第1场 1/10</span></span>
         <span>❤️<span id="lives-display">10</span></span>
         <span>📖<span id="exp-display">50</span></span>
     </div>
-
     <div id="action-bar">
         <button class="action-btn" id="btn-quick-talents">⭐天赋</button>
         <button class="action-btn" id="btn-quick-skills">✨技能</button>
         <button class="action-btn" id="btn-quick-items">🧪物品</button>
     </div>
-
+    <div id="match-score-display">
+        <span class="score-team-label">你</span>
+        <span id="score-p" class="score-num score-tied">0</span>
+        <span class="score-colon">:</span>
+        <span id="score-o" class="score-num score-tied">0</span>
+        <span class="score-team-label">对手</span>
+    </div>
     <div id="output-area"></div>
     <div id="controls"></div>
 </div>
-
 <script>
-(function() {
-    // ============ 常量 ============
-    const LEAGUE_NAMES = ['乙级联赛','甲级联赛','冠军联赛','超级联赛'];
-    const TACTICS = [
-        { id:'press', name:'高位压迫', desc:'突破+2，防守-2，技能消耗+2' },
-        { id:'possession', name:'控球', desc:'进攻防守+1，技能消耗-1' },
-        { id:'parkbus', name:'摆大巴', desc:'防守+8，突破劣势，丢球额外-1士气' },
-        { id:'counter', name:'防守反击', desc:'防守+4，进攻-4，进攻技能消耗+1' },
-    ];
-    const OPPONENT_TACTIC_MAP = {
-        attack: ['press', 'possession'],
-        balanced: ['possession', 'counter'],
-        defend: ['counter', 'parkbus']
-    };
-    const TALENTS = [
-        { id:'fox', name:'禁区之狐', desc:'射门时进攻+2', price:85 },
-        { id:'counter_talent', name:'反击嗅觉', desc:'防守成功后士气额外+1', price:70 },
-        { id:'iron', name:'意志坚定', desc:'大失败不再影响士气', price:90 },
-        { id:'heart', name:'大心脏', desc:'比赛最后3回合进攻+2，防守+2', price:90 },
-        { id:'iron_man', name:'铁人', desc:'体能上限+8', price:90 },
-        { id:'arsenal', name:'美丽足球', desc:'突破检定时进攻+3', price:75 },
-        { id:'wall', name:'铜墙铁壁', desc:'防守回合防守+5', price:80 },
-        { id:'comeback', name:'逆转之王', desc:'落后时士气+1，进攻+2，防守+2', price:85 },
-        { id:'genius', name:'天才', desc:'赛后获得1.5倍经验', price:80 },
-        { id:'hardworking', name:'勤奋', desc:'赛后获得经验+20', price:100 },
-        { id:'lucky', name:'稳定', desc:'骰子下限+4，不受士气影响', price:80 },
-        { id:'thinker', name:'思考人生', desc:'士气锁0，进攻+5，射门+5，劣势', price:80 },
-        { id:'marathon', name:'马拉松选手', desc:'赛后额外恢复5体能', price:90 },
-        { id:'fast_start', name:'闪电起步', desc:'前3回合进攻+3', price:80 },
-        { id:'iron_captain', name:'铁血队长', desc:'关键战攻防各+3', price:100 },
-        { id:'penalty_expert', name:'点球专家', desc:'点球骰子下限+5', price:75 },
-        { id:'blood_boil', name:'乘胜追击', desc:'士气上限+1，每正士气+2进攻', price:85 },
-        { id:'last_stand', name:'破釜沉舟', desc:'生命<3时攻防+5，初始士气+1', price:90 },
-        { id:'management_trust', name:'管理层信任', desc:'生命上限+5', price:100 },
-        { id:'mourinho_bus', name:'穆里尼奥大巴', desc:'摆大巴时防守下限12', price:95 },
-        { id:'guardiola_board', name:'瓜迪奥拉战术板', desc:'控球战术效果翻倍', price:95 },
-        { id:'klopp_hat', name:'克洛普棒球帽', desc:'高位压迫额外突破+2进攻+4', price:95 },
-        { id:'simone_suit', name:'西蒙尼西装', desc:'防守反击额外防+2，进攻+2', price:95 },
-    ];
-    const SKILLS = [
-        { id:'cannon', name:'重炮轰门', cost:6, desc:'射门时双骰取高', target:'shot', effect:'advantage', price:95 },
-        { id:'tackle', name:'精准放铲', cost:3, desc:'防守回合防守+5', target:'defend', effect:'defUp5', price:80 },
-        { id:'offside', name:'反越位', cost:6, desc:'突破一定成功', target:'break', effect:'autoSuccess', price:100 },
-        { id:'preciseShot', name:'精准射门', cost:2, desc:'射门时对方防守-3', target:'shot', effect:'reduceOppDef3', price:60 },
-        { id:'ironDefend', name:'飞身扑救', cost:5, desc:'防守时双骰取高+4', target:'defend', effect:'blockAdvantage', price:85 },
-        { id:'dribble', name:'马赛回旋', cost:4, desc:'突破时进攻+4', target:'break', effect:'atkUp4', price:70 },
-        { id:'lob', name:'吊射', cost:4, desc:'射门时对方双骰取低', target:'shot', effect:'oppDisadvantage', price:75 },
-        { id:'penalty_skill', name:'造点球', cost:7, desc:'射门骰子下限15', target:'shot', effect:'diceFloor15', price:80 },
-        { id:'feint', name:'假动作', cost:2, desc:'突破时进攻+2', target:'break', effect:'atkUp2', price:50 },
-        { id:'tightMark', name:'贴身防守', cost:2, desc:'防守时防守+2', target:'defend', effect:'defUp2', price:50 },
-        { id:'lightCounter', name:'闪电反击', cost:5, desc:'突破用，成功射门+2优势，失败防守劣势', target:'break', effect:'counterBreak', price:95 },
-        { id:'goalLine', name:'司令塔', cost:5, desc:'防守骰子下限12，失败则扑救劣势', target:'defend', effect:'diceFloor12', price:85 },
-        { id:'feintPass', name:'假传真射', cost:3, desc:'突破+6，成功后射门攻-2', target:'break', effect:'fakePass', price:65 },
-        { id:'scorpion', name:'天外飞仙', cost:6, desc:'射门1-10大失败，11-20大成功', target:'shot', effect:'scorpionKick', price:70 },
-    ];
-    const CONSUMABLES = [
-        { id:'drink', name:'运动饮料', desc:'恢复8点体能', type:'active', price:30, max:3 },
-        { id:'spray', name:'战前动员', desc:'开局士气+1', type:'passive', price:35, max:2 },
-        { id:'charm', name:'幸运符', desc:'抵挡一次大失败', type:'passive', price:45, max:1 },
-        { id:'adrenaline', name:'肾上腺素', desc:'本场攻防+2，下场攻防-2', type:'active', price:55, max:2 },
-    ];
-    const OPPONENT_SKILLS = {
-        attack: [{ name:'踩单车' },{ name:'突然加速' },{ name:'马赛回旋' }],
-        shot: [{ name:'兜射' },{ name:'凌空抽射' },{ name:'大力头球' }],
-        defend: [{ name:'飞铲' },{ name:'战术犯规' },{ name:'卡位' }]
-    };
-    const OPPONENT_TYPE_RANGES = {
-        attack: { offense: [[5,9],[8,12],[12,16],[16,20]], defense: [[2,5],[5,8],[8,11],[11,14]] },
-        balanced: { offense: [[4,7],[7,10],[10,13],[13,16]], defense: [[4,7],[7,10],[10,13],[13,16]] },
-        defend: { offense: [[2,5],[5,8],[8,11],[11,14]], defense: [[5,9],[8,12],[12,16],[16,20]] }
-    };
+(function(){
+const LEAGUE_NAMES=['乙级联赛','甲级联赛','冠军联赛','超级联赛'];
+const TACTICS=[
+    {id:'press',name:'高位压迫',desc:'突破时优势，防守时对方劣势'},
+    {id:'possession',name:'tititaka',desc:'突破和射门下限+2，技能体力消耗-1'},
+    {id:'parkbus',name:'摆大巴',desc:'防守下限+5+优势，突破劣势'},
+    {id:'counter',name:'防守反击',desc:'防守和突破下限+2，射门优势'}
+];
+const OPPONENT_TACTIC_MAP={attack:['press','possession'],balanced:['possession','counter'],defend:['counter','parkbus']};
+const TALENTS=[
+    {id:'fox',name:'禁区之狐',desc:'射门时进攻+2',price:85},
+    {id:'counter_talent',name:'反击嗅觉',desc:'防守成功后士气额外+1',price:70},
+    {id:'iron',name:'意志坚定',desc:'大失败不再影响士气',price:90},
+    {id:'heart',name:'大心脏',desc:'比赛最后3回合进攻+2，防守+2',price:90},
+    {id:'iron_man',name:'铁人',desc:'体能上限+8',price:90},
+    {id:'arsenal',name:'美丽足球',desc:'突破检定时进攻+3',price:75},
+    {id:'wall',name:'铜墙铁壁',desc:'防守回合防守+5',price:80},
+    {id:'comeback',name:'逆转之王',desc:'落后时士气+1，进攻+2，防守+2',price:85},
+    {id:'genius',name:'天才',desc:'赛后获得1.5倍经验',price:80},
+    {id:'hardworking',name:'勤奋',desc:'赛后获得经验+20',price:100},
+    {id:'lucky',name:'稳定',desc:'骰子下限+4，不受士气影响',price:80},
+    {id:'thinker',name:'思考人生',desc:'士气锁0，进攻+5，射门+5，劣势',price:80},
+    {id:'marathon',name:'马拉松选手',desc:'赛后额外恢复5体能',price:90},
+    {id:'fast_start',name:'闪电起步',desc:'前3回合进攻+3',price:80},
+    {id:'iron_captain',name:'铁血队长',desc:'关键战攻防各+3',price:100},
+    {id:'penalty_expert',name:'点球专家',desc:'点球骰子下限+5',price:75},
+    {id:'blood_boil',name:'乘胜追击',desc:'士气上限+1，每正士气+2进攻',price:85},
+    {id:'last_stand',name:'破釜沉舟',desc:'生命<3时攻防+5，初始士气+1',price:90},
+    {id:'management_trust',name:'管理层信任',desc:'生命上限+5',price:100},
+    {id:'mourinho_bus',name:'鸟',desc:'强化摆大巴：防守下限+6+优势，突破劣势，射门优势',price:150},
+    {id:'guardiola_board',name:'瓜',desc:'强化tititaka：进攻下限+3，技能消耗-1，赛后体力+5经验+10',price:150},
+    {id:'klopp_hat',name:'渣',desc:'强化高位压迫：防守对方劣势，突破优势，开局士气+1，射门下限+2',price:150},
+    {id:'simone_suit',name:'西',desc:'强化防守反击：防守下限+4，突破下限+2，射门下限+2+优势',price:150}
+];
+const SKILLS=[
+    {id:'cannon',name:'重炮轰门',cost:6,desc:'射门时双骰取高',target:'shot',effect:'advantage',price:95},
+    {id:'tackle',name:'精准放铲',cost:3,desc:'防守回合防守+5',target:'defend',effect:'defUp5',price:80},
+    {id:'offside',name:'反越位',cost:6,desc:'突破一定成功',target:'break',effect:'autoSuccess',price:100},
+    {id:'preciseShot',name:'精准射门',cost:2,desc:'射门时对方防守-3',target:'shot',effect:'reduceOppDef3',price:60},
+    {id:'ironDefend',name:'飞身扑救',cost:5,desc:'防守时双骰取高+4',target:'defend',effect:'blockAdvantage',price:85},
+    {id:'dribble',name:'马赛回旋',cost:4,desc:'突破时进攻+4',target:'break',effect:'atkUp4',price:70},
+    {id:'lob',name:'吊射',cost:4,desc:'射门时对方双骰取低',target:'shot',effect:'oppDisadvantage',price:75},
+    {id:'penalty_skill',name:'造点球',cost:7,desc:'射门骰子下限15',target:'shot',effect:'diceFloor15',price:80},
+    {id:'feint',name:'假动作',cost:2,desc:'突破时进攻+2',target:'break',effect:'atkUp2',price:50},
+    {id:'tightMark',name:'贴身防守',cost:2,desc:'防守时防守+2',target:'defend',effect:'defUp2',price:50},
+    {id:'lightCounter',name:'闪电反击',cost:5,desc:'突破用，成功射门+2优势，失败防守劣势',target:'break',effect:'counterBreak',price:95},
+    {id:'goalLine',name:'司令塔',cost:5,desc:'防守骰子下限12，失败则扑救劣势',target:'defend',effect:'diceFloor12',price:85},
+    {id:'feintPass',name:'假传真射',cost:3,desc:'突破+6，成功后射门攻-2',target:'break',effect:'fakePass',price:65},
+    {id:'scorpion',name:'天外飞仙',cost:6,desc:'射门1-8大失败，9-20大成功',target:'shot',effect:'scorpionKick',price:70}
+];
+const CONSUMABLES=[
+    {id:'drink',name:'运动饮料',desc:'恢复8点体能',type:'active',price:30,max:3},
+    {id:'spray',name:'战前动员',desc:'开局士气+1',type:'passive',price:35,max:2},
+    {id:'charm',name:'幸运符',desc:'抵挡一次大失败',type:'passive',price:45,max:1},
+    {id:'adrenaline',name:'肾上腺素',desc:'本场攻防+2，下场攻防-2',type:'active',price:55,max:2}
+];
+const OPPONENT_SKILLS={attack:[{name:'踩单车'},{name:'突然加速'},{name:'马赛回旋'}],shot:[{name:'兜射'},{name:'凌空抽射'},{name:'大力头球'}],defend:[{name:'飞铲'},{name:'战术犯规'},{name:'卡位'}]};
+const OPPONENT_TYPE_RANGES={attack:{offense:[[5,9],[8,12],[12,16],[16,20]],defense:[[2,5],[5,8],[8,11],[11,14]]},balanced:{offense:[[4,7],[7,10],[10,13],[13,16]],defense:[[4,7],[7,10],[10,13],[13,16]]},defend:{offense:[[2,5],[5,8],[8,11],[11,14]],defense:[[5,9],[8,12],[12,16],[16,20]]}};
 
-    // ============ 工具函数 ============
-    function rand(min,max){ return Math.floor(Math.random()*(max-min+1))+min; }
+function rand(a,b){return Math.floor(Math.random()*(b-a+1))+a;}
+function sleep(ms){return new Promise(r=>setTimeout(r,ms));}
+function getLeagueSkillBonus(type){const l=player.currentLeague;const r=type==='defend'?[[0,3],[1,4],[2,5],[3,6]]:[[1,2],[2,3],[3,4],[4,5]];const[mn,mx]=r[Math.min(l,3)];return rand(mn,mx);}
+function getOpponentSkill(phase){const p=OPPONENT_SKILLS[phase];const s=p[Math.floor(Math.random()*p.length)];return{name:s.name,bonus:getLeagueSkillBonus(phase==='defend'?'defend':'attack')};}
+function generateOpponentTactics(){const r=Math.random();let t='balanced';if(r<0.34)t='attack';else if(r<0.67)t='balanced';else t='defend';player.opponentType=t;const pt=OPPONENT_TACTIC_MAP[t];player.opponentTactics=TACTICS.find(x=>x.id===pt[Math.floor(Math.random()*pt.length)]);}
+function getOpponentStats(){const t=player.opponentType,l=player.currentLeague,ranges=OPPONENT_TYPE_RANGES[t],oR=ranges.offense[Math.min(l,3)],dR=ranges.defense[Math.min(l,3)];return{attack:rand(oR[0],oR[1]),defense:rand(dR[0],dR[1])};}
+function resolveSkillEffect(eff,ctx){if(!eff)return ctx;switch(eff){case'advantage':ctx.advantage=true;break;case'autoSuccess':ctx.autoSuccess=true;break;case'defUp5':ctx.defBonus+=5;break;case'defUp2':ctx.defBonus+=2;break;case'blockAdvantage':ctx.advantage=true;ctx.defBonus+=4;break;case'reduceOppDef3':ctx.oppDefReduction=3;break;case'atkUp4':ctx.atkBonus+=4;break;case'atkUp2':ctx.atkBonus+=2;break;case'oppDisadvantage':ctx.oppDisadvantage=true;break;case'diceFloor15':ctx.diceFloor=Math.max(ctx.diceFloor||0,15);break;case'diceFloor12':ctx.diceFloor=Math.max(ctx.diceFloor||0,12);break;case'scorpionKick':ctx.scorpionKick=true;break;case'counterBreak':ctx.counterBreak=true;break;case'fakePass':ctx.fakePass=true;ctx.atkBonus+=6;break;}return ctx;}
+function getOppTacticDesc(tid){switch(tid){case'press':return'突破优势，防守时你劣势';case'possession':return'突破和射门下限+2';case'parkbus':return'防守下限+5+优势，突破劣势';case'counter':return'防守和突破下限+2，射门优势';default:return'';}}
 
-    function getLeagueSkillBonus(type) {
-        const league = player.currentLeague;
-        const ranges = type==='defend' ? [[0,3],[1,4],[2,5],[3,6]] : [[1,2],[2,3],[3,4],[4,5]];
-        const [min, max] = ranges[Math.min(league,3)];
-        return rand(min, max);
+class Player{
+    constructor(name){
+        this.name=name||'传奇';this.attack=5;this.defense=5;this.maxStamina=20;this.stamina=20;this.morale=0;
+        this.talents=[];this.skills=[];this.consumables=[];this.exp=50;this.lives=10;
+        this.currentLeague=0;this.matchesPlayed=0;this.totalWins=0;this.totalLosses=0;
+        this.match=null;this.currentShopItems=[];this.currentTactics=null;this.opponentTactics=null;
+        this.opponentType=null;this.keyMatchIndices=[];this.generateKeyMatches();
+    }
+    get staminaBonus(){return this.talents.some(t=>t.id==='iron_man')?8:0;}
+    get effectiveMaxStamina(){return this.maxStamina+this.staminaBonus;}
+    get maxLives(){return 10+(this.talents.some(t=>t.id==='management_trust')?5:0);}
+    get moraleCap(){return this.talents.some(t=>t.id==='blood_boil')?3:2;}
+    generateKeyMatches(){let c=[5,6,7,8,9];for(let i=c.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[c[i],c[j]]=[c[j],c[i]];}this.keyMatchIndices=c.slice(0,2).sort((a,b)=>a-b);}
+    isKeyMatch(){return this.keyMatchIndices.includes(this.matchesPlayed);}
+    resetForMatch(){
+        this.stamina=Math.min(this.stamina,this.effectiveMaxStamina);let sm=0;
+        if(!this.talents.some(t=>t.id==='thinker')){this.consumables.forEach(c=>{if(c.id==='spray')sm+=1;});}
+        if(this.talents.some(t=>t.id==='last_stand')&&this.lives<3)sm+=1;
+        this.morale=Math.max(-2,Math.min(this.moraleCap,sm));this.usedCharmThisMatch=false;
+        const maxT=this.isKeyMatch()?12:8;
+        this.match={score:[0,0],currentTurn:0,maxTurns:maxT,firstAttack:null,turnOrder:[],lastBreakSuccess:false,usedConsumables:[],opponent:{attack:0,defense:0},comebackTriggered:false,isKeyMatch:this.isKeyMatch(),adrenalineState:0,fakePassActive:false,scorpionActive:false,defendDisadvantage:false,shotBonus:0,pTactic:null,oTactic:null};
+        if(sm>0)appendOutput('🧪 开局士气+'+sm,'info');
+        if(this.match.isKeyMatch){appendOutput('⚡⚡⚡ 关键战！12回合 · 结果翻倍！⚡⚡⚡','crit');const b=document.createElement('div');b.className='key-match-badge';b.textContent='⚡ 关键战';document.getElementById('game-container').appendChild(b);setTimeout(()=>{if(b.parentNode)b.remove();},6000);}
+    }
+    adjustMorale(d){if(this.talents.some(t=>t.id==='thinker')){this.morale=0;updateUI();return;}if(this.talents.some(t=>t.id==='iron')&&d<0)return;let o=this.morale;this.morale=Math.max(-2,Math.min(this.moraleCap,this.morale+d));if(this.morale!==o&&this.match)appendOutput('士气 '+(d>0?'+'+d:d)+' → '+this.morale,'info');updateUI();}
+    endMatchRecovery(){let r=10;if(this.talents.some(t=>t.id==='marathon'))r+=5;this.stamina=Math.min(this.stamina+r,this.effectiveMaxStamina);appendOutput('⚡ 体能恢复'+r+' → '+this.stamina+'/'+this.effectiveMaxStamina,'info');}
+    getPassiveBonus(ph){let v=0;if(ph==='break'&&this.talents.some(t=>t.id==='arsenal'))v+=3;if(ph==='defend'&&this.talents.some(t=>t.id==='wall'))v+=5;if(ph==='shot'&&this.talents.some(t=>t.id==='fox'))v+=2;return v;}
+    getHeartBonus(){return(this.talents.some(t=>t.id==='heart')&&this.match&&this.match.currentTurn>=this.match.maxTurns-3)?2:0;}
+    getFastStartBonus(){return(this.talents.some(t=>t.id==='fast_start')&&this.match&&this.match.currentTurn<3)?3:0;}
+    getComebackBonus(){return(this.talents.some(t=>t.id==='comeback')&&this.match&&this.match.score[0]<this.match.score[1])?2:0;}
+    getBloodBoilBonus(){if(!this.talents.some(t=>t.id==='blood_boil'))return 0;return Math.max(0,this.morale)*2;}
+    getLastStandBonus(){return(this.talents.some(t=>t.id==='last_stand')&&this.lives<3)?5:0;}
+    getIronCaptainBonus(){return(this.talents.some(t=>t.id==='iron_captain')&&this.match&&this.match.isKeyMatch)?3:0;}
+    getTotalBonus(ph){let b=this.getPassiveBonus(ph);b+=this.getHeartBonus()+this.getFastStartBonus();b+=this.getComebackBonus()+this.getBloodBoilBonus();b+=this.getIronCaptainBonus()+this.getLastStandBonus();return b;}
+}
+
+let player,isAnimating=false,penaltyAnimating=false,freeTalentGiven=false;
+const coverPanel=document.getElementById('cover-panel'),introPanel=document.getElementById('intro-panel'),allocPanel=document.getElementById('alloc-panel'),skillPanel=document.getElementById('skill-select-panel'),talentViewPanel=document.getElementById('talent-view-panel'),skillViewPanel=document.getElementById('skill-view-panel'),itemViewPanel=document.getElementById('item-view-panel'),tacticsPanel=document.getElementById('tactics-panel'),outputArea=document.getElementById('output-area'),controlsDiv=document.getElementById('controls');
+
+function updateUI(){if(!player)return;document.getElementById('atk-val').textContent=player.attack;document.getElementById('def-val').textContent=player.defense;document.getElementById('stam-val').textContent=player.stamina+'/'+player.effectiveMaxStamina;document.getElementById('morale-val').textContent=player.morale;document.getElementById('morale-emoji').textContent=player.morale>0?'🔥':(player.morale<0?'😞':'');document.getElementById('league-phase-display').textContent=LEAGUE_NAMES[player.currentLeague];const ik=player.keyMatchIndices.includes(player.matchesPlayed);document.getElementById('match-progress-display').textContent='第'+(player.matchesPlayed+1)+'场 '+(player.matchesPlayed+1)+'/10'+(ik?'⚡':'');document.getElementById('lives-display').textContent=player.lives+'/'+player.maxLives;document.getElementById('exp-display').textContent=player.exp;}
+function clearOutput(){outputArea.innerHTML='';}
+function appendOutput(t,c){c=c||'';const d=document.createElement('div');d.className='msg '+c+' fade-in';d.innerHTML=t;outputArea.appendChild(d);outputArea.scrollTop=outputArea.scrollHeight;}
+function setControls(btns){controlsDiv.innerHTML='';btns.forEach(function(b){const btn=document.createElement('button');btn.textContent=b.text;btn.className='btn';if(b.btnClass)btn.className+=' '+b.btnClass;if(b.disabled)btn.disabled=true;btn.addEventListener('click',function(){if(!isAnimating&&!penaltyAnimating)b.action();});controlsDiv.appendChild(btn);});}
+function showGoalAnimation(ip){const o=document.createElement('div');o.className='goal-overlay';o.textContent=ip?'⚽ 进球！！！':'💔 丢球...';o.style.background=ip?'rgba(255,215,0,0.5)':'rgba(255,0,0,0.4)';o.style.color=ip?'#ffd700':'#ff4444';document.body.appendChild(o);setTimeout(()=>o.remove(),800);}
+function showLifeLossAnimation(){const s=document.getElementById('lives-display');s.classList.add('life-loss');setTimeout(()=>s.classList.remove('life-loss'),1000);}
+function showVs(l,r){const d=document.createElement('div');d.className='vs-display fade-in';d.innerHTML='<span>'+l+'</span> VS <span>'+r+'</span>';outputArea.appendChild(d);outputArea.scrollTop=outputArea.scrollHeight;}
+function showBigResult(t,w){const d=document.createElement('div');d.className='big-result '+(w?'player-win':'opponent-win')+' fade-in';d.textContent=t;outputArea.appendChild(d);outputArea.scrollTop=outputArea.scrollHeight;}
+
+function updateMatchScoreDisplay(){
+    const disp=document.getElementById('match-score-display');
+    if(!player||!player.match){disp.style.display='none';return;}
+    disp.style.display='flex';
+    const s=player.match.score,sp=document.getElementById('score-p'),so=document.getElementById('score-o');
+    sp.textContent=s[0];so.textContent=s[1];
+    if(s[0]>s[1]){sp.className='score-num score-leading';so.className='score-num score-trailing';}
+    else if(s[0]<s[1]){sp.className='score-num score-trailing';so.className='score-num score-leading';}
+    else{sp.className='score-num score-tied';so.className='score-num score-tied';}
+}
+
+// ============ Dice (Floor built-in) ============
+async function rollDice(sides,label,adv,dis,floor,applyM,isP){
+    sides=Math.max(1,sides);adv=adv||false;dis=dis||false;floor=floor||0;
+    if(applyM===undefined)applyM=true;if(isP===undefined)isP=true;
+    if(adv&&dis){adv=false;dis=false;}
+    isAnimating=true;if(!penaltyAnimating)controlsDiv.querySelectorAll('.btn').forEach(b=>b.disabled=true);
+
+    if(floor>=sides){
+        const da=document.createElement('div');da.className='dice-area fade-in';outputArea.appendChild(da);
+        const bx=document.createElement('div');bx.className='dice-box '+(isP?'player-dice':'opponent-dice');bx.textContent='🎲'+floor;bx.classList.add('highlight');da.appendChild(bx);
+        appendOutput(label+' → <b>'+floor+'</b> (下限锁定)','info');isAnimating=false;return floor;
     }
 
-    function getOpponentSkill(phase) {
-        const pool = OPPONENT_SKILLS[phase];
-        const skill = pool[Math.floor(Math.random()*pool.length)];
-        return { name: skill.name, bonus: getLeagueSkillBonus(phase==='defend'?'defend':'attack') };
+    const mn=Math.max(1,floor);let r1=rand(mn,sides),r2=rand(mn,sides),fv=r1;
+    const da=document.createElement('div');da.className='dice-area fade-in';outputArea.appendChild(da);
+    const b1=document.createElement('div');b1.className='dice-box '+(isP?'player-dice':'opponent-dice');b1.textContent='🎲?';da.appendChild(b1);
+    let b2=null;
+    if(adv||dis){b2=document.createElement('div');b2.className='dice-box '+(isP?'player-dice':'opponent-dice');b2.textContent='🎲?';da.appendChild(b2);}
+    outputArea.scrollTop=outputArea.scrollHeight;
+
+    await new Promise(res=>{let st=0;const ss=(adv||dis)?8:6;const iv=setInterval(()=>{b1.textContent='🎲'+rand(mn,sides);if(b2)b2.textContent='🎲'+rand(mn,sides);st++;if(st>=ss){clearInterval(iv);setTimeout(res,200);}},60);});
+    b1.textContent='🎲'+r1;if(b2)b2.textContent='🎲'+r2;
+    if(adv){fv=Math.max(r1,r2);if(r1>=r2)b1.classList.add('highlight');else b2.classList.add('highlight');}
+    else if(dis){fv=Math.min(r1,r2);if(r1<=r2)b1.classList.add('highlight');else b2.classList.add('highlight');}
+    await sleep(350);
+
+    if(isP&&label.includes('射门')&&player&&player.match&&player.match.scorpionActive){
+        const d20=rand(1,20);appendOutput('✨ 天外飞仙：掷D20 → '+d20,'crit');fv=d20>=9?20:1;
     }
 
-    function generateOpponentTactics() {
-        const roll = Math.random();
-        let type = 'balanced';
-        if (roll < 0.34) type = 'attack';
-        else if (roll < 0.67) type = 'balanced';
-        else type = 'defend';
-        player.opponentType = type;
-        const possibleTacs = OPPONENT_TACTIC_MAP[type];
-        player.opponentTactics = TACTICS.find(t => t.id === possibleTacs[Math.floor(Math.random()*possibleTacs.length)]);
+    let mt=adv?' [优势取高]':(dis?' [劣势取低]':''),ft=floor>0?' (下限'+floor+')':'';
+    appendOutput(label+' 掷出 <b>'+fv+'</b>'+mt+ft,'info');
+
+    if(fv===1&&applyM&&player&&!player.usedCharmThisMatch){
+        const ci=player.consumables.findIndex(c=>c.id==='charm');
+        if(ci!==-1){player.consumables.splice(ci,1);player.usedCharmThisMatch=true;appendOutput('🍀 幸运符触发！重掷！','crit');r1=rand(mn,sides);b1.textContent='🎲'+r1;b1.classList.remove('highlight');if(b2)b2.classList.remove('highlight');await sleep(400);fv=r1;if(fv===20)appendOutput(label+' 🌟大成功！（重掷）','crit');else if(fv===1)appendOutput(label+' 💥大失败！（重掷）','crit');else appendOutput(label+' 重掷结果：'+fv,'info');}
+    }
+    if(fv===20)appendOutput(label+' 🌟大成功！','crit');else if(fv===1)appendOutput(label+' 💥大失败！','crit');
+    if(applyM&&player&&player.match&&player.morale!==0){const ms=player.morale>0?'+'+player.morale:''+player.morale;fv+=player.morale;appendOutput('🎯 士气'+ms+' → 总计'+fv,'info');}
+    isAnimating=false;return fv;
+}
+
+function playerFloor(base){let f=base||0;if(player.talents.some(t=>t.id==='lucky'))f=Math.max(f,4);return f;}
+function shouldMorale(){return !player.talents.some(t=>t.id==='lucky')&&!player.talents.some(t=>t.id==='thinker');}
+
+// ============ Tactics (Both Sides) ============
+function applyTacticsEffect(){
+    const pt=player.currentTactics,ot=player.opponentTactics,m=player.match;
+    const hk=player.talents.some(t=>t.id==='klopp_hat'),hg=player.talents.some(t=>t.id==='guardiola_board'),
+          hm=player.talents.some(t=>t.id==='mourinho_bus'),hs=player.talents.some(t=>t.id==='simone_suit');
+
+    m.pTactic={breakAdv:false,breakDisadv:false,breakFloor:0,shotAdv:false,shotFloor:0,defendOppDisadv:false,defendFloor:0,defendAdv:false,staminaCostMod:0};
+    switch(pt.id){
+        case'press':m.pTactic.breakAdv=true;m.pTactic.defendOppDisadv=true;if(hk){player.morale=Math.min(player.morale+1,player.moraleCap);m.pTactic.shotFloor=2;appendOutput('🎩 渣：开局士气+1，射门下限+2','info');}break;
+        case'possession':m.pTactic.breakFloor=2;m.pTactic.shotFloor=2;m.pTactic.staminaCostMod=-1;if(hg){m.pTactic.breakFloor=3;m.pTactic.shotFloor=3;appendOutput('🎩 瓜：进攻下限+3，技能消耗-1','info');}break;
+        case'parkbus':m.pTactic.defendFloor=5;m.pTactic.defendAdv=true;m.pTactic.breakDisadv=true;if(hm){m.pTactic.defendFloor=6;m.pTactic.shotAdv=true;appendOutput('🎩 鸟：防守下限+6+优势，突破劣势，射门优势','info');}break;
+        case'counter':m.pTactic.defendFloor=2;m.pTactic.breakFloor=2;m.pTactic.shotAdv=true;if(hs){m.pTactic.defendFloor=4;m.pTactic.shotFloor=2;appendOutput('🎩 西：防守下限+4，突破下限+2，射门下限+2+优势','info');}break;
     }
 
-    function getOpponentStats() {
-        const type = player.opponentType;
-        const lg = player.currentLeague;
-        const ranges = OPPONENT_TYPE_RANGES[type];
-        const offRange = ranges.offense[Math.min(lg,3)];
-        const defRange = ranges.defense[Math.min(lg,3)];
-        return { attack: rand(offRange[0], offRange[1]), defense: rand(defRange[0], defRange[1]) };
+    m.oTactic={breakAdv:false,breakDisadv:false,breakFloor:0,shotAdv:false,shotFloor:0,defendFloor:0,defendAdv:false,playerDisadvOnBreak:false};
+    switch(ot.id){
+        case'press':m.oTactic.breakAdv=true;m.oTactic.playerDisadvOnBreak=true;break;
+        case'possession':m.oTactic.breakFloor=2;m.oTactic.shotFloor=2;break;
+        case'parkbus':m.oTactic.defendFloor=5;m.oTactic.defendAdv=true;m.oTactic.breakDisadv=true;break;
+        case'counter':m.oTactic.defendFloor=2;m.oTactic.breakFloor=2;m.oTactic.shotAdv=true;break;
     }
+}
 
-    function resolveSkillEffect(effect, ctx) {
-        if (!effect) return ctx;
-        switch(effect) {
-            case 'advantage': ctx.advantage=true; break;
-            case 'autoSuccess': ctx.autoSuccess=true; break;
-            case 'defUp5': ctx.defBonus+=5; break;
-            case 'defUp2': ctx.defBonus+=2; break;
-            case 'blockAdvantage': ctx.advantage=true; ctx.defBonus+=4; break;
-            case 'reduceOppDef3': ctx.oppDefReduction=3; break;
-            case 'atkUp4': ctx.atkBonus+=4; break;
-            case 'atkUp2': ctx.atkBonus+=2; break;
-            case 'oppDisadvantage': ctx.oppDisadvantage=true; break;
-            case 'diceFloor15': ctx.diceFloor=15; break;
-            case 'diceFloor12': ctx.diceFloor=12; break;
-            case 'scorpionKick': ctx.scorpionKick=true; break;
-            case 'counterBreak': ctx.counterBreak=true; break;
-            case 'fakePass': ctx.fakePass=true; ctx.atkBonus+=6; break;
-        }
-        return ctx;
-    }
+function getSkillCost(sk){const mod=(player.match&&player.match.pTactic)?player.match.pTactic.staminaCostMod:0;return Math.max(1,sk.cost+mod);}
 
-    // ============ Player 类 ============
-    class Player {
-        constructor(name) {
-            this.name = name || '传奇';
-            this.attack = 5;
-            this.defense = 5;
-            this.maxStamina = 20;
-            this.stamina = 20;
-            this.morale = 0;
-            this.talents = [];
-            this.skills = [];
-            this.consumables = [];
-            this.exp = 50;
-            this.lives = 10;
-            this.currentLeague = 0;
-            this.matchesPlayed = 0;
-            this.totalWins = 0;
-            this.totalLosses = 0;
-            this.match = null;
-            this.currentShopItems = [];
-            this.currentTactics = null;
-            this.opponentTactics = null;
-            this.opponentType = null;
-            this.keyMatchIndices = [];
-            this.generateKeyMatches();
-        }
+// ============ Shop ============
+function generateShopItems(){var items=[];var at=TALENTS.filter(t=>!player.talents.some(pt=>pt.id===t.id)).sort(()=>.5-Math.random()).slice(0,2);at.forEach(t=>items.push({type:'talent',data:t,price:t.price}));var ask=SKILLS.filter(s=>!player.skills.some(ps=>ps.id===s.id)).sort(()=>.5-Math.random()).slice(0,2);ask.forEach(s=>items.push({type:'skill',data:s,price:s.price}));var ac=CONSUMABLES.filter(c=>player.consumables.filter(cc=>cc.id===c.id).length<(c.max||99)).sort(()=>.5-Math.random()).slice(0,2);ac.forEach(c=>items.push({type:'consumable',data:c,price:c.price}));items.push({type:'life',data:{name:'生命之心',desc:'当前'+player.lives+'/'+player.maxLives},price:30});return items;}
 
-        get staminaBonus() { return this.talents.some(t => t.id === 'iron_man') ? 8 : 0; }
-        get effectiveMaxStamina() { return this.maxStamina + this.staminaBonus; }
-        get maxLives() { return 10 + (this.talents.some(t => t.id === 'management_trust') ? 5 : 0); }
-        get moraleCap() { return this.talents.some(t => t.id === 'blood_boil') ? 3 : 2; }
-
-        generateKeyMatches() {
-            let c = [5,6,7,8,9];
-            for (let i = c.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [c[i], c[j]] = [c[j], c[i]];
-            }
-            this.keyMatchIndices = c.slice(0, 2).sort((a,b) => a-b);
-        }
-
-        isKeyMatch() { return this.keyMatchIndices.includes(this.matchesPlayed); }
-
-        resetForMatch() {
-            this.stamina = Math.min(this.stamina, this.effectiveMaxStamina);
-            let startMorale = 0;
-            if (!this.talents.some(t => t.id === 'thinker')) {
-                this.consumables.forEach(c => { if (c.id === 'spray') startMorale += 1; });
-            }
-            if (this.talents.some(t => t.id === 'last_stand') && this.lives < 3) startMorale += 1;
-            this.morale = Math.max(-2, Math.min(this.moraleCap, startMorale));
-            this.usedCharmThisMatch = false;
-            const maxT = this.isKeyMatch() ? 12 : 8;
-            this.match = {
-                score: [0,0], currentTurn: 0, maxTurns: maxT, firstAttack: null, turnOrder: [],
-                lastBreakSuccess: false, usedConsumables: [], opponent: { attack:0, defense:0 },
-                comebackTriggered: false, isKeyMatch: this.isKeyMatch(), adrenalineState: 0,
-                fakePassActive: false, scorpionActive: false, defendDisadvantage: false, shotBonus: 0,
-                tacticDefBonus: 0, tacticAtkMod: 0, tacticBreakDisadv: false, parkBus: false
-            };
-            if (startMorale > 0) appendOutput('🧪 开局士气+' + startMorale, 'info');
-            if (this.match.isKeyMatch) {
-                appendOutput('⚡⚡⚡ 关键战！12回合 · 结果翻倍！⚡⚡⚡', 'crit');
-                const badge = document.createElement('div');
-                badge.className = 'key-match-badge';
-                badge.textContent = '⚡ 关键战';
-                document.getElementById('game-container').appendChild(badge);
-                setTimeout(() => { if (badge.parentNode) badge.remove(); }, 6000);
-            }
-        }
-
-        adjustMorale(delta) {
-            if (this.talents.some(t => t.id === 'thinker')) { this.morale = 0; updateUI(); return; }
-            if (this.talents.some(t => t.id === 'iron') && delta < 0) return;
-            let old = this.morale;
-            this.morale = Math.max(-2, Math.min(this.moraleCap, this.morale + delta));
-            if (this.morale !== old && this.match) {
-                appendOutput('士气 ' + (delta > 0 ? '+' + delta : delta) + ' → ' + this.morale, 'info');
-            }
-            updateUI();
-        }
-
-        endMatchRecovery() {
-            let rec = 10;
-            if (this.talents.some(t => t.id === 'marathon')) rec += 5;
-            this.stamina = Math.min(this.stamina + rec, this.effectiveMaxStamina);
-            appendOutput('⚡ 体能恢复' + rec + ' → ' + this.stamina + '/' + this.effectiveMaxStamina, 'info');
-        }
-
-        getPassiveBonus(phase) {
-            let v = 0;
-            if (phase === 'break' && this.talents.some(t => t.id === 'arsenal')) v += 3;
-            if (phase === 'defend' && this.talents.some(t => t.id === 'wall')) v += 5;
-            if (phase === 'shot' && this.talents.some(t => t.id === 'fox')) v += 2;
-            return v;
-        }
-
-        getHeartBonus() { return (this.talents.some(t => t.id === 'heart') && this.match && this.match.currentTurn >= this.match.maxTurns - 3) ? 2 : 0; }
-        getFastStartBonus() { return (this.talents.some(t => t.id === 'fast_start') && this.match && this.match.currentTurn < 3) ? 3 : 0; }
-        getComebackBonus() { return (this.talents.some(t => t.id === 'comeback') && this.match && this.match.score[0] < this.match.score[1]) ? 2 : 0; }
-        getBloodBoilBonus() { if (!this.talents.some(t => t.id === 'blood_boil')) return 0; return Math.max(0, this.morale) * 2; }
-        getLastStandBonus() { return (this.talents.some(t => t.id === 'last_stand') && this.lives < 3) ? 5 : 0; }
-        getIronCaptainBonus() { return (this.talents.some(t => t.id === 'iron_captain') && this.match && this.match.isKeyMatch) ? 3 : 0; }
-
-        getTotalBonus(phase) {
-            let b = this.getPassiveBonus(phase);
-            b += this.getHeartBonus() + this.getFastStartBonus();
-            b += this.getComebackBonus() + this.getBloodBoilBonus();
-            b += this.getIronCaptainBonus() + this.getLastStandBonus();
-            return b;
-        }
-    }
-
-    // ============ 全局状态 ============
-    let player;
-    let isAnimating = false;
-    let penaltyAnimating = false;
-    let freeTalentGiven = false;
-
-    // ============ DOM 引用 ============
-    const coverPanel = document.getElementById('cover-panel');
-    const introPanel = document.getElementById('intro-panel');
-    const allocPanel = document.getElementById('alloc-panel');
-    const skillPanel = document.getElementById('skill-select-panel');
-    const talentViewPanel = document.getElementById('talent-view-panel');
-    const skillViewPanel = document.getElementById('skill-view-panel');
-    const itemViewPanel = document.getElementById('item-view-panel');
-    const tacticsPanel = document.getElementById('tactics-panel');
-    const outputArea = document.getElementById('output-area');
-    const controlsDiv = document.getElementById('controls');
-
-    // ============ UI 工具 ============
-    function updateUI() {
-        if (!player) return;
-        document.getElementById('atk-val').textContent = player.attack;
-        document.getElementById('def-val').textContent = player.defense;
-        document.getElementById('stam-val').textContent = player.stamina + '/' + player.effectiveMaxStamina;
-        document.getElementById('morale-val').textContent = player.morale;
-        document.getElementById('morale-emoji').textContent = player.morale > 0 ? '🔥' : (player.morale < 0 ? '😞' : '');
-        document.getElementById('league-phase-display').textContent = LEAGUE_NAMES[player.currentLeague];
-        const isKey = player.keyMatchIndices.includes(player.matchesPlayed);
-        document.getElementById('match-progress-display').textContent = '第' + (player.matchesPlayed + 1) + '场 ' + (player.matchesPlayed + 1) + '/10' + (isKey ? '⚡' : '');
-        document.getElementById('lives-display').textContent = player.lives + '/' + player.maxLives;
-        document.getElementById('exp-display').textContent = player.exp;
-    }
-
-    function clearOutput() { outputArea.innerHTML = ''; }
-
-    function appendOutput(text, cls) {
-        cls = cls || '';
-        const div = document.createElement('div');
-        div.className = 'msg ' + cls + ' fade-in';
-        div.innerHTML = text;
+function renderProgressAndShop(){
+    clearOutput();appendOutput('📈 进步与机会 · 经验:'+player.exp,'phase');
+    if(player.currentShopItems.length===0)player.currentShopItems=generateShopItems();
+    player.currentShopItems.forEach(function(item,idx){
+        var div=document.createElement('div');div.className='shop-item';
+        var icon=item.type==='talent'?'⭐天赋':(item.type==='skill'?'✨技能':(item.type==='consumable'?'🧪消耗品':'❤️生命'));
+        div.innerHTML='<div class="item-left"><div class="item-name"><span>'+icon+'</span> '+item.data.name+'</div><div class="item-desc">'+(item.data.desc||'')+'</div></div><div class="item-price">'+item.price+' EXP</div>';
+        div.onclick=function(){if(player.exp>=item.price){player.exp-=item.price;if(item.type==='talent')player.talents.push(item.data);else if(item.type==='skill')player.skills.push(item.data);else if(item.type==='consumable'){var cur=player.consumables.filter(c=>c.id===item.data.id).length;if(cur>=(item.data.max||99)){appendOutput(item.data.name+' 已达上限，补偿8经验','info');player.exp+=8;updateUI();renderProgressAndShop();return;}player.consumables.push(item.data);}else if(item.type==='life'){if(player.lives<player.maxLives){player.lives=Math.min(player.lives+1,player.maxLives);appendOutput('❤️ 生命+1！','goal');}else{appendOutput('生命已满！','info');player.exp+=item.price;updateUI();renderProgressAndShop();return;}}appendOutput('✅ 购买了 '+item.data.name+'！','goal');player.currentShopItems.splice(idx,1);updateUI();renderProgressAndShop();}else appendOutput('经验不足！','miss');};
         outputArea.appendChild(div);
-        outputArea.scrollTop = outputArea.scrollHeight;
-    }
-
-    function setControls(buttons) {
-        controlsDiv.innerHTML = '';
-        buttons.forEach(function(b) {
-            const btn = document.createElement('button');
-            btn.textContent = b.text;
-            btn.className = 'btn';
-            if (b.btnClass) btn.className += ' ' + b.btnClass;
-            if (b.disabled) btn.disabled = true;
-            btn.addEventListener('click', function() {
-                if (!isAnimating && !penaltyAnimating) b.action();
-            });
-            controlsDiv.appendChild(btn);
-        });
-    }
-
-    function showGoalAnimation(isPlayer) {
-        const overlay = document.createElement('div');
-        overlay.className = 'goal-overlay';
-        overlay.textContent = isPlayer ? '⚽ 进球！！！' : '💔 丢球...';
-        overlay.style.background = isPlayer ? 'rgba(255,215,0,0.5)' : 'rgba(255,0,0,0.4)';
-        overlay.style.color = isPlayer ? '#ffd700' : '#ff4444';
-        document.body.appendChild(overlay);
-        setTimeout(() => overlay.remove(), 800);
-    }
-
-    function showLifeLossAnimation() {
-        const s = document.getElementById('lives-display');
-        s.classList.add('life-loss');
-        setTimeout(() => s.classList.remove('life-loss'), 1000);
-    }
-
-    function showVs(left, right) {
-        const div = document.createElement('div');
-        div.className = 'vs-display fade-in';
-        div.innerHTML = '<span>' + left + '</span> VS <span>' + right + '</span>';
-        outputArea.appendChild(div);
-        outputArea.scrollTop = outputArea.scrollHeight;
-    }
-
-    function showBigResult(text, isPlayerWin) {
-        const div = document.createElement('div');
-        div.className = 'big-result ' + (isPlayerWin ? 'player-win' : 'opponent-win') + ' fade-in';
-        div.textContent = text;
-        outputArea.appendChild(div);
-        outputArea.scrollTop = outputArea.scrollHeight;
-    }
-
-    function showScoreBoard() {
-        const s = player.match.score;
-        let colorClass = 'white';
-        if (s[0] > s[1]) colorClass = 'gold';
-        else if (s[0] < s[1]) colorClass = 'red';
-        const board = document.createElement('div');
-        board.className = 'score-board ' + colorClass;
-        board.innerHTML = s[0] + ' : ' + s[1];
-        outputArea.appendChild(board);
-        outputArea.scrollTop = outputArea.scrollHeight;
-    }
-
-    // ============ 骰子系统 ============
-    async function rollDice(sides, label, advantage, disadvantage, diceFloor, applyMorale, isPlayerDice = true) {
-        sides = Math.max(1, sides);
-        advantage = advantage || false;
-        disadvantage = disadvantage || false;
-        diceFloor = diceFloor || 0;
-        applyMorale = applyMorale !== false;
-
-        isAnimating = true;
-        if (!penaltyAnimating) {
-            controlsDiv.querySelectorAll('.btn').forEach(btn => btn.disabled = true);
-        }
-
-        let r1 = Math.floor(Math.random() * sides) + 1;
-        let r2 = Math.floor(Math.random() * sides) + 1;
-        let finalVal = r1;
-
-        const diceArea = document.createElement('div');
-        diceArea.className = 'dice-area fade-in';
-        outputArea.appendChild(diceArea);
-        const box1 = document.createElement('div');
-        box1.className = 'dice-box ' + (isPlayerDice ? 'player-dice' : 'opponent-dice');
-        box1.textContent = '🎲?';
-        diceArea.appendChild(box1);
-        let box2 = null;
-        if (advantage || disadvantage) {
-            box2 = document.createElement('div');
-            box2.className = 'dice-box ' + (isPlayerDice ? 'player-dice' : 'opponent-dice');
-            box2.textContent = '🎲?';
-            diceArea.appendChild(box2);
-        }
-        outputArea.scrollTop = outputArea.scrollHeight;
-
-        await new Promise(resolve => {
-            let step = 0;
-            const steps = (advantage || disadvantage) ? 8 : 6;
-            const interval = setInterval(() => {
-                box1.textContent = '🎲' + (Math.floor(Math.random() * sides) + 1);
-                if (box2) box2.textContent = '🎲' + (Math.floor(Math.random() * sides) + 1);
-                step++;
-                if (step >= steps) { clearInterval(interval); setTimeout(resolve, 200); }
-            }, 60);
-        });
-
-        box1.textContent = '🎲' + r1;
-        if (box2) box2.textContent = '🎲' + r2;
-
-        if (advantage) {
-            finalVal = Math.max(r1, r2);
-            if (r1 >= r2) box1.classList.add('highlight');
-            else box2.classList.add('highlight');
-        } else if (disadvantage) {
-            finalVal = Math.min(r1, r2);
-            if (r1 <= r2) box1.classList.add('highlight');
-            else box2.classList.add('highlight');
-        }
-
-        await new Promise(r => setTimeout(r, 350));
-
-        if (label.includes('射门') && player && player.match && player.match.scorpionActive) {
-            const d20roll = Math.floor(Math.random() * 20) + 1;
-            appendOutput('✨ 天外飞仙：掷D20 → ' + d20roll, 'crit');
-            finalVal = d20roll >= 11 ? 20 : 1;
-        }
-
-        let appliedFloor = false;
-        if (diceFloor > 0 && finalVal < diceFloor) {
-            finalVal = diceFloor;
-            appliedFloor = true;
-        }
-
-        let modeText = advantage ? ' [优势取高]' : (disadvantage ? ' [劣势取低]' : '');
-        appendOutput(label + ' 掷出 <b>' + finalVal + '</b>' + modeText + (appliedFloor ? ' (下限)' : ''), 'info');
-
-        if (applyMorale && player && player.talents.some(t => t.id === 'lucky') && finalVal < 4 && finalVal !== 1) {
-            finalVal = 4;
-            appendOutput('⭐ 稳定：骰子提升至4', 'info');
-        }
-
-        if (finalVal === 1 && applyMorale && player && !player.usedCharmThisMatch) {
-            const charmIdx = player.consumables.findIndex(c => c.id === 'charm');
-            if (charmIdx !== -1) {
-                player.consumables.splice(charmIdx, 1);
-                player.usedCharmThisMatch = true;
-                appendOutput('🍀 幸运符触发！重掷！', 'crit');
-                r1 = Math.floor(Math.random() * sides) + 1;
-                box1.textContent = '🎲' + r1;
-                box1.classList.remove('highlight');
-                if (box2) box2.classList.remove('highlight');
-                await new Promise(r => setTimeout(r, 400));
-                finalVal = r1;
-                if (finalVal === 20) appendOutput(label + ' 🌟大成功！（重掷）', 'crit');
-                else if (finalVal === 1) appendOutput(label + ' 💥大失败！（重掷）', 'crit');
-                else appendOutput(label + ' 重掷结果：' + finalVal, 'info');
-            }
-        }
-
-        if (finalVal === 20) appendOutput(label + ' 🌟大成功！', 'crit');
-        else if (finalVal === 1) appendOutput(label + ' 💥大失败！', 'crit');
-
-        if (applyMorale && player && player.match && !player.talents.some(t => t.id === 'lucky' || t.id === 'thinker')) {
-            if (player.morale !== 0) {
-                const mStr = player.morale > 0 ? '+' + player.morale : '' + player.morale;
-                finalVal += player.morale;
-                appendOutput('🎯 士气' + mStr + ' → 总计' + finalVal, 'info');
-            }
-        }
-
-        isAnimating = false;
-        return finalVal;
-    }
-
-    // ============ 商店系统 ============
-    function generateShopItems() {
-        var items = [];
-        var avTalent = TALENTS.filter(t => !player.talents.some(pt => pt.id === t.id)).sort(() => 0.5 - Math.random()).slice(0, 2);
-        avTalent.forEach(t => items.push({ type: 'talent', data: t, price: t.price }));
-        var avSkill = SKILLS.filter(s => !player.skills.some(ps => ps.id === s.id)).sort(() => 0.5 - Math.random()).slice(0, 2);
-        avSkill.forEach(s => items.push({ type: 'skill', data: s, price: s.price }));
-        var avCon = CONSUMABLES.filter(c => player.consumables.filter(cc => cc.id === c.id).length < (c.max || 99)).sort(() => 0.5 - Math.random()).slice(0, 2);
-        avCon.forEach(c => items.push({ type: 'consumable', data: c, price: c.price }));
-        items.push({ type: 'life', data: { name: '生命之心', desc: '当前' + player.lives + '/' + player.maxLives }, price: 30 });
-        return items;
-    }
-
-    function renderProgressAndShop() {
-        clearOutput();
-        appendOutput('📈 进步与机会 · 经验:' + player.exp, 'phase');
-        if (player.currentShopItems.length === 0) player.currentShopItems = generateShopItems();
-        player.currentShopItems.forEach(function(item, idx) {
-            var div = document.createElement('div');
-            div.className = 'shop-item';
-            var icon = item.type === 'talent' ? '⭐天赋' : (item.type === 'skill' ? '✨技能' : (item.type === 'consumable' ? '🧪消耗品' : '❤️生命'));
-            div.innerHTML = '<div class="item-left"><div class="item-name"><span class="shop-category-tag">' + icon + '</span> ' + item.data.name + '</div><div class="item-desc">' + (item.data.desc || '') + '</div></div><div class="item-price">' + item.price + ' EXP</div>';
-            div.onclick = function() {
-                if (player.exp >= item.price) {
-                    player.exp -= item.price;
-                    if (item.type === 'talent') player.talents.push(item.data);
-                    else if (item.type === 'skill') player.skills.push(item.data);
-                    else if (item.type === 'consumable') {
-                        var cur = player.consumables.filter(c => c.id === item.data.id).length;
-                        if (cur >= (item.data.max || 99)) {
-                            appendOutput(item.data.name + ' 已达上限，补偿8经验', 'info');
-                            player.exp += 8;
-                            updateUI();
-                            renderProgressAndShop();
-                            return;
-                        }
-                        player.consumables.push(item.data);
-                    } else if (item.type === 'life') {
-                        if (player.lives < player.maxLives) {
-                            player.lives = Math.min(player.lives + 1, player.maxLives);
-                            appendOutput('❤️ 生命+1！', 'goal');
-                        } else {
-                            appendOutput('生命已满！', 'info');
-                            player.exp += item.price;
-                            updateUI();
-                            renderProgressAndShop();
-                            return;
-                        }
-                    }
-                    appendOutput('✅ 购买了 ' + item.data.name + '！', 'goal');
-                    player.currentShopItems.splice(idx, 1);
-                    updateUI();
-                    renderProgressAndShop();
-                } else {
-                    appendOutput('经验不足！', 'miss');
-                }
-            };
-            outputArea.appendChild(div);
-        });
-        setControls([
-            { text: '刷新商品 (10EXP)', action: function() {
-                if (player.exp >= 10) { player.exp -= 10; player.currentShopItems = generateShopItems(); appendOutput('商品已刷新！', 'info'); updateUI(); renderProgressAndShop(); }
-                else appendOutput('经验不足！', 'miss');
-            }},
-            { text: '⚽ 下一场比赛', action: function() { showTacticsPanel(); }, btnClass: 'btn-continue' }
-        ]);
-    }
-
-    // ============ 属性分配 ============
-    var allocPoints = 0, tempAtk = 5, tempDef = 5;
-    function updateAllocUI() {
-        document.getElementById('points-remaining').textContent = allocPoints;
-        document.getElementById('atk-alloc').textContent = tempAtk;
-        document.getElementById('def-alloc').textContent = tempDef;
-        document.getElementById('atk-plus').disabled = (allocPoints <= 0 || tempAtk >= 15);
-        document.getElementById('atk-minus').disabled = (tempAtk <= player.attack);
-        document.getElementById('def-plus').disabled = (allocPoints <= 0 || tempDef >= 15);
-        document.getElementById('def-minus').disabled = (tempDef <= player.defense);
-        document.getElementById('btn-confirm-alloc').disabled = (allocPoints > 0);
-    }
-
-    document.getElementById('atk-plus').addEventListener('click', () => { if (allocPoints > 0 && tempAtk < 15) { tempAtk++; allocPoints--; updateAllocUI(); } });
-    document.getElementById('atk-minus').addEventListener('click', () => { if (tempAtk > player.attack) { tempAtk--; allocPoints++; updateAllocUI(); } });
-    document.getElementById('def-plus').addEventListener('click', () => { if (allocPoints > 0 && tempDef < 15) { tempDef++; allocPoints--; updateAllocUI(); } });
-    document.getElementById('def-minus').addEventListener('click', () => { if (tempDef > player.defense) { tempDef--; allocPoints++; updateAllocUI(); } });
-    document.getElementById('btn-confirm-alloc').addEventListener('click', () => {
-        if (allocPoints > 0) return;
-        player.attack = tempAtk;
-        player.defense = tempDef;
-        allocPanel.classList.add('hidden-panel');
-        updateUI();
-        showSkillSelectInitial();
     });
+    setControls([{text:'刷新商品 (10EXP)',action:function(){if(player.exp>=10){player.exp-=10;player.currentShopItems=generateShopItems();appendOutput('商品已刷新！','info');updateUI();renderProgressAndShop();}else appendOutput('经验不足！','miss');}},{text:'⚽ 下一场比赛',action:function(){showTacticsPanel();},btnClass:'btn-continue'}]);
+}
 
-    // ============ 初始技能选择 ============
-    function showSkillSelectInitial() {
-        skillPanel.classList.remove('hidden-panel');
-        var container = document.getElementById('skill-options');
-        container.innerHTML = '';
-        var shuffled = SKILLS.slice().sort(() => 0.5 - Math.random()).slice(0, 3);
-        shuffled.forEach(function(s) {
-            var btn = document.createElement('button');
-            btn.className = 'btn';
-            btn.style.width = '100%'; btn.style.marginBottom = '10px'; btn.style.textAlign = 'center';
-            btn.innerHTML = `<div><span class="cost-badge" style="background:#8bb84e;color:#000;border-radius:50%;display:inline-block;width:24px;height:24px;line-height:24px;margin-right:6px;">${s.cost}</span> ${s.name}</div><div style="font-size:0.78rem;color:#e0d7b0;">${s.desc}</div>`;
-            btn.onclick = function() {
-                player.skills.push(s);
-                skillPanel.classList.add('hidden-panel');
-                showTacticsPanel();
-            };
-            container.appendChild(btn);
-        });
+// ============ Alloc ============
+var allocPoints=0,tempAtk=5,tempDef=5;
+function updateAllocUI(){document.getElementById('points-remaining').textContent=allocPoints;document.getElementById('atk-alloc').textContent=tempAtk;document.getElementById('def-alloc').textContent=tempDef;document.getElementById('atk-plus').disabled=(allocPoints<=0||tempAtk>=15);document.getElementById('atk-minus').disabled=(tempAtk<=player.attack);document.getElementById('def-plus').disabled=(allocPoints<=0||tempDef>=15);document.getElementById('def-minus').disabled=(tempDef<=player.defense);document.getElementById('btn-confirm-alloc').disabled=(allocPoints>0);}
+document.getElementById('atk-plus').addEventListener('click',()=>{if(allocPoints>0&&tempAtk<15){tempAtk++;allocPoints--;updateAllocUI();}});
+document.getElementById('atk-minus').addEventListener('click',()=>{if(tempAtk>player.attack){tempAtk--;allocPoints++;updateAllocUI();}});
+document.getElementById('def-plus').addEventListener('click',()=>{if(allocPoints>0&&tempDef<15){tempDef++;allocPoints--;updateAllocUI();}});
+document.getElementById('def-minus').addEventListener('click',()=>{if(tempDef>player.defense){tempDef--;allocPoints++;updateAllocUI();}});
+document.getElementById('btn-confirm-alloc').addEventListener('click',()=>{if(allocPoints>0)return;player.attack=tempAtk;player.defense=tempDef;allocPanel.classList.add('hidden-panel');updateUI();showSkillSelectInitial();});
+
+// ============ Skill Select ============
+function showSkillSelectInitial(){skillPanel.classList.remove('hidden-panel');var c=document.getElementById('skill-options');c.innerHTML='';var sh=SKILLS.slice().sort(()=>.5-Math.random()).slice(0,3);sh.forEach(function(s){var b=document.createElement('button');b.className='btn';b.style.width='100%';b.style.marginBottom='10px';b.style.textAlign='center';b.innerHTML='<div><span style="background:#8bb84e;color:#000;border-radius:50%;display:inline-block;width:24px;height:24px;line-height:24px;margin-right:6px;">'+s.cost+'</span> '+s.name+'</div><div style="font-size:0.78rem;color:#e0d7b0;">'+s.desc+'</div>';b.onclick=function(){player.skills.push(s);skillPanel.classList.add('hidden-panel');showTacticsPanel();};c.appendChild(b);});}
+
+// ============ Quick Panels ============
+document.getElementById('btn-quick-talents').addEventListener('click',()=>{talentViewPanel.classList.remove('hidden-panel');document.getElementById('talent-list').innerHTML=player.talents.length===0?'<div style="color:#c0b87a;">暂无天赋</div>':player.talents.map(t=>'<div class="talent-entry"><span class="name">⭐ '+t.name+'</span><br><span style="font-size:0.8rem;color:#e0d7b0;">'+t.desc+'</span></div>').join('');});
+document.getElementById('btn-close-talents').addEventListener('click',()=>talentViewPanel.classList.add('hidden-panel'));
+document.getElementById('btn-quick-skills').addEventListener('click',()=>{skillViewPanel.classList.remove('hidden-panel');document.getElementById('skill-list').innerHTML=player.skills.length===0?'<div style="color:#c0b87a;">暂无技能</div>':player.skills.map(s=>'<div class="skill-entry"><span class="cost-badge">'+s.cost+'</span><span class="name">'+s.name+'</span><div style="font-size:0.8rem;color:#e0d7b0;">'+s.desc+'</div></div>').join('');});
+document.getElementById('btn-close-skills').addEventListener('click',()=>skillViewPanel.classList.add('hidden-panel'));
+document.getElementById('btn-quick-items').addEventListener('click',()=>{itemViewPanel.classList.remove('hidden-panel');const cnt={};player.consumables.forEach(c=>{cnt[c.id]=(cnt[c.id]||0)+1;});const u=[];const se=new Set();player.consumables.forEach(c=>{if(!se.has(c.id)){se.add(c.id);u.push({name:c.name,desc:c.desc,count:cnt[c.id]});}});document.getElementById('item-list').innerHTML=player.consumables.length===0?'<div style="color:#c0b87a;">暂无物品</div>':u.map(x=>'<div class="item-entry"><span class="count-badge">'+x.count+'</span><span class="name">'+x.name+'</span><div style="font-size:0.8rem;color:#e0d7b0;">'+x.desc+'</div></div>').join('');});
+document.getElementById('btn-close-items').addEventListener('click',()=>itemViewPanel.classList.add('hidden-panel'));
+
+// ============ Free Talent ============
+function giveFreeTalent(){const av=TALENTS.filter(t=>!player.talents.some(pt=>pt.id===t.id));if(!av.length)return;const t=av[Math.floor(Math.random()*av.length)];player.talents.push(t);const o=document.createElement('div');o.className='fullscreen-panel';o.style.zIndex='50';o.innerHTML='<div style="text-align:center;color:#f7e05e;font-size:1.4rem;">🎁 开局天赋<br>⭐ '+t.name+'<br><span style="font-size:0.9rem;">'+t.desc+'</span></div><button class="btn btn-continue" style="margin-top:16px;">确认</button>';document.body.appendChild(o);o.querySelector('button').onclick=()=>{o.remove();tempAtk=player.attack;tempDef=player.defense;allocPoints=5;updateAllocUI();allocPanel.classList.remove('hidden-panel');};}
+
+// ============ Tactics ============
+function showTacticsPanel(){tacticsPanel.classList.remove('hidden-panel');const c=document.getElementById('tactics-options-container');c.innerHTML='';TACTICS.forEach(tac=>{const d=document.createElement('div');d.className='tactics-option';d.innerHTML='<span>'+tac.name+'</span><span style="font-size:0.7rem;color:#c0b87a;">'+tac.desc+'</span>';d.onclick=()=>{player.currentTactics=tac;generateOpponentTactics();tacticsPanel.classList.add('hidden-panel');showTacticsResultModal();};c.appendChild(d);});}
+function showTacticsResultModal(){const m=document.createElement('div');m.className='fullscreen-panel';m.style.zIndex='50';m.innerHTML='<div class="tactic-card"><h3>你的战术</h3><div style="color:#f7e05e;">'+player.currentTactics.name+'</div><div class="desc">'+player.currentTactics.desc+'</div></div><div class="tactic-card"><h3>对手战术 ('+player.opponentType+')</h3><div style="color:#f7e05e;">'+player.opponentTactics.name+'</div><div class="desc">'+player.opponentTactics.desc+'<br><span style="color:#ffaa44;">效果：'+getOppTacticDesc(player.opponentTactics.id)+'</span></div></div><button class="btn btn-continue" id="btn-start-match" style="margin-top:16px;">⚽ 开始比赛</button>';document.body.appendChild(m);document.getElementById('btn-start-match').onclick=()=>{m.remove();startMatch();};}
+
+// ============ Match ============
+async function startMatch(){
+    player.resetForMatch();applyTacticsEffect();
+    const opp=getOpponentStats();player.match.opponent={attack:opp.attack,defense:opp.defense};
+    player.match.firstAttack=Math.random()>.5?'player':'opponent';
+    const order=[];for(let i=0;i<player.match.maxTurns;i++)order.push(i%2===0?player.match.firstAttack:(player.match.firstAttack==='player'?'opponent':'player'));
+    player.match.turnOrder=order;clearOutput();
+    appendOutput('📢 对手 攻面'+opp.attack+' 防面'+opp.defense+' | '+player.match.maxTurns+'回合 ('+player.opponentType+')','phase');
+    appendOutput('对手战术：'+player.opponentTactics.name+' — '+getOppTacticDesc(player.opponentTactics.id),'info');
+    appendOutput('先攻：'+(player.match.firstAttack==='player'?'你':'对手'));
+    updateMatchScoreDisplay();await processTurn();
+}
+
+async function processTurn(){if(!player.match||player.match.currentTurn>=player.match.maxTurns){await endMatch();return;}updateMatchScoreDisplay();if(player.match.turnOrder[player.match.currentTurn]==='player')await playerTurn();else await opponentTurn();}
+
+function showContinueButton(){
+    if(player.match.turnOrder[player.match.currentTurn]==='player'){if(player.match.adrenalineState===1)player.match.adrenalineState=2;else if(player.match.adrenalineState===2)player.match.adrenalineState=0;}
+    player.match.currentTurn++;player.match.comebackTriggered=false;
+    setControls([{text:'继续',action:()=>processTurn(),btnClass:'btn-continue'}]);
+}
+
+// --- Player Turn ---
+async function playerTurn(){
+    updateUI();clearOutput();appendOutput('⚡ 第'+(player.match.currentTurn+1)+'/'+player.match.maxTurns+'回合：你的进攻','phase');
+    if(player.talents.some(t=>t.id==='comeback')&&player.match.score[0]<player.match.score[1]&&!player.match.comebackTriggered){player.adjustMorale(1);player.match.comebackTriggered=true;}
+    const btns=[{text:'🏃 突破',action:()=>playerBreak(null),btnClass:'btn-attack'}];
+    player.skills.forEach(s=>{if((s.target==='break'||s.target==='any')&&player.stamina>=getSkillCost(s))btns.push({text:s.name+' ⚡'+getSkillCost(s),action:()=>useSkillBreak(s),btnClass:'btn-attack'});});
+    player.consumables.forEach((c,i)=>{if(c.type==='active'&&player.match.usedConsumables.indexOf(i)===-1)btns.push({text:'🧪 '+c.name,action:()=>useConsumable(i)});});
+    setControls(btns);
+}
+
+async function playerBreak(skillEff){
+    const ctx={advantage:false,disadvantage:false,defBonus:0,atkBonus:0,oppDefReduction:0,diceFloor:0,autoSuccess:false,fakePass:false,scorpionKick:false,counterBreak:false};
+    resolveSkillEffect(skillEff,ctx);
+    const m=player.match,pt=m.pTactic||{},ot=m.oTactic||{};
+
+    if(pt.breakAdv)ctx.advantage=true;if(pt.breakDisadv)ctx.disadvantage=true;
+    if(ot.playerDisadvOnBreak){ctx.disadvantage=true;appendOutput('⚠️ 对手高位压迫，你的突破劣势','info');}
+
+    let df=Math.max(ctx.diceFloor||0,pt.breakFloor||0);df=playerFloor(df);
+    if(player.talents.some(t=>t.id==='thinker')){ctx.atkBonus+=5;ctx.disadvantage=true;appendOutput('💭 思考人生：进攻+5，劣势','info');}
+    if(ctx.autoSuccess){appendOutput('💫 反越位成功！直面门将！','crit');m.lastBreakSuccess=true;await sleep(800);showShotOptions();return;}
+    ctx.atkBonus+=player.getTotalBonus('break');
+    if(m.adrenalineState===1)ctx.atkBonus+=2;if(m.adrenalineState===2)ctx.atkBonus-=2;
+
+    const roll=await rollDice(player.attack,'你突破',ctx.advantage,ctx.disadvantage,df,shouldMorale());
+    if(roll===20){player.adjustMorale(1);showBigResult('🌟 完美突破！',true);m.lastBreakSuccess=true;await sleep(800);showShotOptions();return;}
+    if(roll===1){player.adjustMorale(-1);showBigResult('💥 突破失误...',false);m.lastBreakSuccess=false;if(ctx.fakePass){m.fakePassActive=true;await sleep(800);playerShot(null);}else{await sleep(800);showContinueButton();}return;}
+
+    const total=roll+ctx.atkBonus;
+    const ods=getOpponentSkill('defend');appendOutput('⚠️ 对手防守【'+ods.name+'】 +'+ods.bonus,'crit');
+    const oda=ot.defendAdv||false,odf=ot.defendFloor||0;
+    const oRoll=await rollDice(m.opponent.defense,'对手防守',oda,false,odf,false,false);
+    if(oRoll===20){player.adjustMorale(-1);showBigResult('🌟 对手完美防守！',false);m.lastBreakSuccess=false;if(ctx.fakePass){m.fakePassActive=true;await sleep(800);playerShot(null);}else{await sleep(800);showContinueButton();}return;}
+    if(oRoll===1){player.adjustMorale(1);showBigResult('💥 对手失误！突破成功！',true);m.lastBreakSuccess=true;await sleep(800);showShotOptions();return;}
+
+    const oTotal=oRoll+ods.bonus;
+    showVs('<b style="color:#4dff4d">'+total+'</b> (骰'+roll+'+'+ctx.atkBonus+')','<b style="color:#ff6666">'+oTotal+'</b> (骰'+oRoll+'+技'+ods.bonus+')');
+    if(total>oTotal){showBigResult('✅ 突破成功！',true);m.lastBreakSuccess=true;await sleep(1000);showShotOptions();}
+    else{showBigResult('❌ 被抢断',false);m.lastBreakSuccess=false;if(ctx.fakePass){m.fakePassActive=true;await sleep(800);playerShot(null);}else{await sleep(1000);showContinueButton();}}
+}
+
+function showShotOptions(){
+    const btns=[{text:'🥅 射门',action:()=>playerShot(null),btnClass:'btn-attack'}];
+    player.skills.forEach(s=>{if((s.target==='shot'||s.target==='any')&&player.stamina>=getSkillCost(s))btns.push({text:s.name+' ⚡'+getSkillCost(s),action:()=>useSkillShot(s),btnClass:'btn-attack'});});
+    setControls(btns);
+}
+
+async function playerShot(skillEff){
+    const ctx={advantage:false,disadvantage:false,defBonus:0,atkBonus:0,oppDefReduction:0,diceFloor:0,oppDisadvantage:false,scorpionKick:false};
+    resolveSkillEffect(skillEff,ctx);
+    const m=player.match,pt=m.pTactic||{};
+    if(m.fakePassActive){ctx.atkBonus-=2;appendOutput('🎭 假传真射惩罚：进攻-2','info');m.fakePassActive=false;}
+    ctx.atkBonus+=m.shotBonus;if(m.shotBonus>0){appendOutput('⚡ 闪电反击加成：进攻+'+m.shotBonus,'info');m.shotBonus=0;}
+    if(ctx.scorpionKick)m.scorpionActive=true;
+    if(pt.shotAdv)ctx.advantage=true;
+    let df=Math.max(ctx.diceFloor||0,pt.shotFloor||0);df=playerFloor(df);
+    if(player.talents.some(t=>t.id==='thinker')){ctx.atkBonus+=5;ctx.disadvantage=true;appendOutput('💭 思考人生：射门+5，劣势','info');}
+    ctx.atkBonus+=player.getTotalBonus('shot');
+    if(m.adrenalineState===1)ctx.atkBonus+=2;if(m.adrenalineState===2)ctx.atkBonus-=2;
+
+    const roll=await rollDice(player.attack,'你射门',ctx.advantage,ctx.disadvantage,df,shouldMorale());
+    if(roll===20){player.adjustMorale(1);showBigResult('🌟 世界波！进球！',true);showGoalAnimation(true);m.score[0]++;m.scorpionActive=false;updateMatchScoreDisplay();await sleep(800);showContinueButton();return;}
+    if(roll===1){player.adjustMorale(-1);showBigResult('💥 打飞了...',false);m.scorpionActive=false;await sleep(800);showContinueButton();return;}
+
+    const total=roll+ctx.atkBonus;
+    const oRoll=await rollDice(m.opponent.defense,'门将',false,ctx.oppDisadvantage,0,false,false);
+    if(oRoll===20){player.adjustMorale(-1);showBigResult('🌟 神扑！',false);m.scorpionActive=false;await sleep(800);showContinueButton();return;}
+    if(oRoll===1){player.adjustMorale(1);showBigResult('💥 门将失误！进球！',true);showGoalAnimation(true);m.score[0]++;m.scorpionActive=false;updateMatchScoreDisplay();await sleep(800);showContinueButton();return;}
+
+    const oDef=m.opponent.defense-ctx.oppDefReduction,oTotal=oRoll+oDef;
+    showVs('<b style="color:#4dff4d">'+total+'</b> (骰'+roll+'+'+ctx.atkBonus+')','<b style="color:#ff6666">'+oTotal+'</b> (扑'+oRoll+'+防'+oDef+')');
+    if(total>oTotal){showBigResult('⚽ 进球！',true);showGoalAnimation(true);m.score[0]++;player.adjustMorale(1);updateMatchScoreDisplay();}
+    else showBigResult('😞 被扑出',false);
+    m.scorpionActive=false;await sleep(1000);showContinueButton();
+}
+
+// --- Opponent Turn ---
+async function opponentTurn(){
+    clearOutput();appendOutput('🛡️ 第'+(player.match.currentTurn+1)+'/'+player.match.maxTurns+'回合：对手进攻','phase');
+    if(player.talents.some(t=>t.id==='comeback')&&player.match.score[0]<player.match.score[1]&&!player.match.comebackTriggered){player.adjustMorale(1);player.match.comebackTriggered=true;}
+    const osk=getOpponentSkill('attack');appendOutput('⚠️ 对手突破【'+osk.name+'】 +'+osk.bonus,'crit');
+    const btns=[{text:'🛡️ 防守',action:()=>opponentAttack(osk.bonus,null),btnClass:'btn-defend'}];
+    player.skills.forEach(s=>{if((s.target==='defend'||s.target==='any')&&player.stamina>=getSkillCost(s))btns.push({text:s.name+' ⚡'+getSkillCost(s),action:()=>useSkillDefend(s,osk.bonus),btnClass:'btn-defend'});});
+    player.consumables.forEach((c,i)=>{if(c.type==='active'&&player.match.usedConsumables.indexOf(i)===-1)btns.push({text:'🧪 '+c.name,action:()=>useConsumable(i)});});
+    setControls(btns);
+}
+
+async function opponentAttack(oAtkBonus,pSkill){
+    const ctx={advantage:false,disadvantage:false,defBonus:0,atkBonus:0,diceFloor:0};
+    resolveSkillEffect(pSkill?pSkill.effect:null,ctx);
+    const m=player.match,pt=m.pTactic||{},ot=m.oTactic||{};
+
+    let defAdv=ctx.advantage,defDis=ctx.disadvantage||m.defendDisadvantage;
+    if(pt.defendAdv)defAdv=true;
+    let defFloor=Math.max(ctx.diceFloor||0,pt.defendFloor||0);defFloor=playerFloor(defFloor);
+    if(m.defendDisadvantage){appendOutput('⚡ 上次闪电反击失败，防守劣势','info');m.defendDisadvantage=false;}
+    ctx.defBonus+=player.getTotalBonus('defend');
+
+    let oBA=ot.breakAdv||false,oBD=ot.breakDisadv||false;
+    if(pt.defendOppDisadv)oBD=true;
+    if(oBA&&oBD){oBA=false;oBD=false;}
+    const oBF=ot.breakFloor||0;
+
+    const oRoll=await rollDice(m.opponent.attack,'对手突破',oBA,oBD,oBF,false,false);
+    if(oRoll===20){player.adjustMorale(-1);showBigResult('🌟 对手犀利突破！',false);await sleep(800);await oppShot();return;}
+    if(oRoll===1){player.adjustMorale(1);showBigResult('💥 对手失误！断球！',true);if(player.talents.some(t=>t.id==='counter_talent')){player.adjustMorale(1);appendOutput('📯 反击嗅觉：士气+1','info');}await sleep(800);showContinueButton();return;}
+
+    const oTotal=oRoll+oAtkBonus;
+    const dRoll=await rollDice(player.defense,'你防守',defAdv,defDis,defFloor,true);
+    if(dRoll===20){player.adjustMorale(1);showBigResult('🌟 完美防守！',true);if(player.talents.some(t=>t.id==='counter_talent')){player.adjustMorale(1);appendOutput('📯 反击嗅觉：士气+1','info');}if(pSkill&&pSkill.effect==='counterBreak'){await sleep(800);await counterBreakAttempt();}else{await sleep(800);showContinueButton();}return;}
+    if(dRoll===1){player.adjustMorale(-1);showBigResult('💥 防守失误！',false);await sleep(800);await oppShot();return;}
+
+    const dTotal=dRoll+ctx.defBonus;
+    showVs('<b style="color:#ff6666">'+oTotal+'</b> (骰'+oRoll+'+技'+oAtkBonus+')','<b style="color:#4dff4d">'+dTotal+'</b> (骰'+dRoll+'+防'+ctx.defBonus+')');
+    if(dTotal>oTotal){showBigResult('💪 断球成功！',true);if(player.talents.some(t=>t.id==='counter_talent')){player.adjustMorale(1);appendOutput('📯 反击嗅觉：士气+1','info');}if(pSkill&&pSkill.effect==='counterBreak'){await sleep(1000);await counterBreakAttempt();}else{await sleep(1000);showContinueButton();}}
+    else{showBigResult('⚠️ 对手突破！',false);await sleep(1000);await oppShot();}
+}
+
+async function counterBreakAttempt(){
+    appendOutput('⚡ 反击突破！（进攻+2，优势）','crit');
+    const roll=await rollDice(player.attack,'反击',true,false,0,true);
+    if(roll===20){showBigResult('⚡ 反击完美突破！',true);player.match.lastBreakSuccess=true;player.match.shotBonus=2;await sleep(800);showShotOptions();return;}
+    if(roll===1){showBigResult('💥 反击失误',false);player.match.lastBreakSuccess=false;player.match.defendDisadvantage=true;appendOutput('⚡ 反击失败，下次防守劣势','miss');await sleep(800);showContinueButton();return;}
+    const total=roll+2;const oR=await rollDice(player.match.opponent.defense,'对手防守',false,false,0,false,false);
+    showVs('<b style="color:#4dff4d">'+total+'</b> (骰'+roll+'+2)','<b style="color:#ff6666">'+oR+'</b> (骰'+oR+')');
+    if(total>oR){showBigResult('⚡ 反击突破成功！',true);player.match.lastBreakSuccess=true;player.match.shotBonus=2;appendOutput('⚡ 射门进攻+2','info');await sleep(1000);showShotOptions();}
+    else{showBigResult('⚡ 反击被阻断',false);player.match.lastBreakSuccess=false;await sleep(1000);showContinueButton();}
+}
+
+async function oppShot(){
+    const m=player.match,ot=m.oTactic||{};const ssk=getOpponentSkill('shot');appendOutput('⚠️ 对手射门【'+ssk.name+'】 +'+ssk.bonus,'crit');
+    const oSA=ot.shotAdv||false,oSF=ot.shotFloor||0;
+    const roll=await rollDice(m.opponent.attack,'对手射门',oSA,false,oSF,false,false);
+    if(roll===20){player.adjustMorale(-1);showBigResult('🌟 绝对死角...进球',false);showGoalAnimation(false);m.score[1]++;updateMatchScoreDisplay();await sleep(800);showContinueButton();return;}
+    if(roll===1){player.adjustMorale(1);showBigResult('💥 打偏了！',true);await sleep(800);showContinueButton();return;}
+    const oTotal=roll+ssk.bonus;appendOutput('你扑救...');
+    const dRoll=await rollDice(player.defense,'你扑救',false,false,0,true);
+    if(dRoll===20){player.adjustMorale(1);showBigResult('🌟 神扑！',true);await sleep(800);showContinueButton();return;}
+    if(dRoll===1){player.adjustMorale(-1);showBigResult('💥 扑救失误...丢球',false);showGoalAnimation(false);m.score[1]++;updateMatchScoreDisplay();await sleep(800);showContinueButton();return;}
+    showVs('<b style="color:#ff6666">'+oTotal+'</b> (骰'+roll+'+技'+ssk.bonus+')','<b style="color:#4dff4d">'+dRoll+'</b> (扑'+dRoll+')');
+    if(dRoll>oTotal)showBigResult('🧤 扑救成功！',true);
+    else{showBigResult('💔 球进了...',false);showGoalAnimation(false);m.score[1]++;player.adjustMorale(-1);updateMatchScoreDisplay();}
+    await sleep(1000);showContinueButton();
+}
+
+// --- Skills ---
+async function useSkillBreak(s){const c=getSkillCost(s);if(player.stamina<c)return;player.stamina-=c;updateUI();appendOutput('✨ 使用了 '+s.name+'！','info');await playerBreak(s.effect);}
+async function useSkillShot(s){const c=getSkillCost(s);if(player.stamina<c)return;player.stamina-=c;updateUI();appendOutput('✨ 使用了 '+s.name+'！','info');await playerShot(s.effect);}
+async function useSkillDefend(s,ob){const c=getSkillCost(s);if(player.stamina<c)return;player.stamina-=c;updateUI();appendOutput('✨ 使用了 '+s.name+'！','info');await opponentAttack(ob,s);}
+async function useConsumable(i){const c=player.consumables[i];player.match.usedConsumables.push(i);appendOutput('🧪 使用了 '+c.name,'info');if(c.id==='drink'){player.stamina=Math.min(player.stamina+8,player.effectiveMaxStamina);appendOutput('体能+8 → '+player.stamina,'info');}if(c.id==='adrenaline'){player.match.adrenalineState=1;appendOutput('💉 肾上腺素！本场攻防+2，下场攻防-2','crit');}updateUI();if(player.match.turnOrder[player.match.currentTurn]==='player')await playerTurn();else await opponentTurn();}
+
+// ============ Penalty (Visual 2x5) ============
+async function penaltyShootout(){
+    clearOutput();appendOutput('⚽ 比分持平！进入点球大战！','phase');penaltyAnimating=true;
+    const pF=player.talents.some(t=>t.id==='penalty_expert')?5:0;
+    const ct=document.createElement('div');ct.className='penalty-area';
+    const lP=document.createElement('div');lP.className='penalty-label';lP.style.color='#4dff4d';lP.textContent='⬆ 你的点球';ct.appendChild(lP);
+    const pR=document.createElement('div');pR.className='penalty-row';
+    const lO=document.createElement('div');lO.className='penalty-label';lO.style.color='#ff6666';lO.textContent='⬇ 对手点球';ct.appendChild(lO);
+    const oR=document.createElement('div');oR.className='penalty-row';
+    ct.appendChild(pR);ct.appendChild(oR);outputArea.appendChild(ct);outputArea.scrollTop=outputArea.scrollHeight;
+
+    const pB=[],oB=[];
+    for(let i=0;i<5;i++){const pb=document.createElement('div');pb.className='penalty-dice pd-player';pb.textContent='?';pR.appendChild(pb);pB.push(pb);const ob=document.createElement('div');ob.className='penalty-dice pd-opp';ob.textContent='?';oR.appendChild(ob);oB.push(ob);}
+
+    let pW=0,oW=0;
+    for(let i=0;i<5;i++){
+        await new Promise(res=>{let st=0;const iv=setInterval(()=>{pB[i].textContent=rand(1,20);oB[i].textContent=rand(1,20);st++;if(st>=8){clearInterval(iv);setTimeout(res,180);}},55);});
+        let pRl=rand(1,20),oRl=rand(1,20);
+        if(player.talents.some(t=>t.id==='lucky')&&pRl<4)pRl=4;if(pF>0)pRl=Math.max(pRl,pF);
+        pB[i].textContent=pRl;oB[i].textContent=oRl;
+        if(pRl>oRl){pW++;pB[i].classList.add('highlight');}else if(oRl>pRl){oW++;oB[i].classList.add('highlight');}else{pB[i].style.opacity='0.6';oB[i].style.opacity='0.6';}
+        appendOutput('第'+(i+1)+'轮 你:'+pRl+' vs 对手:'+oRl+(pRl>oRl?' ✅':(pRl<oRl?' ❌':' ➖')),pRl>oRl?'goal':(pRl<oRl?'miss':'info'));
+        outputArea.scrollTop=outputArea.scrollHeight;
+        if(pW>oW+(5-i-1)||oW>pW+(5-i-1))break;await sleep(350);
     }
-
-    // ============ 快速查看面板 ============
-    function updateSkillViewPanel() {
-        const list = document.getElementById('skill-list');
-        if (!player || player.skills.length === 0) { list.innerHTML = '<div style="color:#c0b87a;">暂无技能</div>'; return; }
-        list.innerHTML = player.skills.map(s =>
-            `<div class="skill-entry"><span class="cost-badge">${s.cost}</span><span class="name">${s.name}</span><div style="font-size:0.8rem;color:#e0d7b0;">${s.desc}</div></div>`
-        ).join('');
+    while(pW===oW){
+        const pb=document.createElement('div');pb.className='penalty-dice pd-player';pb.textContent='?';pR.appendChild(pb);
+        const ob=document.createElement('div');ob.className='penalty-dice pd-opp';ob.textContent='?';oR.appendChild(ob);
+        await new Promise(res=>{let st=0;const iv=setInterval(()=>{pb.textContent=rand(1,20);ob.textContent=rand(1,20);st++;if(st>=8){clearInterval(iv);setTimeout(res,180);}},55);});
+        let pRl=rand(1,20),oRl=rand(1,20);
+        if(player.talents.some(t=>t.id==='lucky')&&pRl<4)pRl=4;if(pF>0)pRl=Math.max(pRl,pF);
+        pb.textContent=pRl;ob.textContent=oRl;
+        if(pRl>oRl){pW++;pb.classList.add('highlight');}else if(oRl>pRl){oW++;ob.classList.add('highlight');}
+        appendOutput('⚡ 突然死亡 你:'+pRl+' vs 对手:'+oRl+(pRl>oRl?' ✅':(pRl<oRl?' ❌':' ➖')),pRl>oRl?'goal':(pRl<oRl?'miss':'info'));
+        outputArea.scrollTop=outputArea.scrollHeight;await sleep(350);
     }
+    appendOutput('<b>点球比分：'+pW+' - '+oW+'</b>',pW>oW?'goal':'miss');penaltyAnimating=false;return pW>oW;
+}
 
-    function updateItemViewPanel() {
-        const list = document.getElementById('item-list');
-        if (!player || player.consumables.length === 0) { list.innerHTML = '<div style="color:#c0b87a;">暂无物品</div>'; return; }
-        const counts = {};
-        player.consumables.forEach(c => { counts[c.id] = (counts[c.id] || 0) + 1; });
-        const unique = [];
-        const seen = new Set();
-        player.consumables.forEach(c => { if (!seen.has(c.id)) { seen.add(c.id); unique.push({ name: c.name, desc: c.desc, count: counts[c.id] }); } });
-        list.innerHTML = unique.map(u =>
-            `<div class="item-entry"><span class="count-badge">${u.count}</span><span class="name">${u.name}</span><div style="font-size:0.8rem;color:#e0d7b0;">${u.desc}</div></div>`
-        ).join('');
-    }
+// ============ End Match ============
+async function endMatch(){
+    updateUI();let pw;
+    if(player.match.score[0]===player.match.score[1])pw=await penaltyShootout();
+    else pw=player.match.score[0]>player.match.score[1];
+    const ik=player.match.isKeyMatch;let eg=pw?(ik?60:30):(ik?20:10);
+    if(player.talents.some(t=>t.id==='genius'))eg=Math.floor(eg*1.5);
+    if(player.talents.some(t=>t.id==='hardworking'))eg+=20;
+    if(player.talents.some(t=>t.id==='guardiola_board')&&player.currentTactics&&player.currentTactics.id==='possession'){player.stamina=Math.min(player.stamina+5,player.effectiveMaxStamina);eg+=10;appendOutput('🎩 瓜：体力+5，额外经验+10','info');}
+    player.exp+=eg;
+    if(pw)player.totalWins++;else{player.totalLosses++;const ng=Math.max(1,player.match.score[1]-player.match.score[0]);player.lives-=ng;showLifeLossAnimation();appendOutput('💔 失球扣心 -'+ng,'miss');}
+    player.matchesPlayed++;player.endMatchRecovery();
+    const bg=document.querySelector('.key-match-badge');if(bg)bg.remove();
+    document.getElementById('match-score-display').style.display='none';
+    const ov=document.createElement('div');ov.className='fullscreen-panel';ov.style.zIndex='50';
+    ov.innerHTML='<div class="result-card"><div style="color:'+(pw?'#ffd966':'#ff4444')+'" class="result-label">'+(pw?'🏆 胜利':'💔 失败')+(ik?' (关键战)':'')+'</div><div class="result-score">'+player.match.score[0]+' - '+player.match.score[1]+'</div><div style="margin-top:8px;font-size:0.85rem;color:#e0d7b0;">获得 '+eg+' 经验</div></div><button class="btn btn-continue" id="btn-ec">继续</button>';
+    document.body.appendChild(ov);updateUI();
+    document.getElementById('btn-ec').onclick=()=>{ov.remove();if(player.lives<=0){clearOutput();appendOutput('💀 你的生涯结束了...','crit');appendOutput('总战绩：'+player.totalWins+'胜 '+player.totalLosses+'负','info');setControls([{text:'🔄 重新开始',action:()=>location.reload()}]);}else{if(player.matchesPlayed>=10)handleLeagueProgress();else{player.currentShopItems=generateShopItems();renderProgressAndShop();}}};
+}
+function handleLeagueProgress(){if(player.totalWins>=6){if(player.currentLeague<3)player.currentLeague++;appendOutput('🎉 晋级！进入 '+LEAGUE_NAMES[player.currentLeague]+'！','goal');}else appendOutput('胜场不足('+player.totalWins+'/6)，维持'+LEAGUE_NAMES[player.currentLeague],'info');player.matchesPlayed=0;player.totalWins=0;player.totalLosses=0;player.generateKeyMatches();player.currentShopItems=generateShopItems();updateUI();renderProgressAndShop();}
 
-    document.getElementById('btn-quick-talents').addEventListener('click', () => {
-        talentViewPanel.classList.remove('hidden-panel');
-        const list = document.getElementById('talent-list');
-        list.innerHTML = player.talents.length === 0 ? '<div style="color:#c0b87a;">暂无天赋</div>' :
-            player.talents.map(t => `<div class="talent-entry"><span class="name">⭐ ${t.name}</span><br><span style="font-size:0.8rem;color:#e0d7b0;">${t.desc}</span></div>`).join('');
-    });
-    document.getElementById('btn-close-talents').addEventListener('click', () => talentViewPanel.classList.add('hidden-panel'));
-
-    document.getElementById('btn-quick-skills').addEventListener('click', () => { skillViewPanel.classList.remove('hidden-panel'); updateSkillViewPanel(); });
-    document.getElementById('btn-close-skills').addEventListener('click', () => skillViewPanel.classList.add('hidden-panel'));
-
-    document.getElementById('btn-quick-items').addEventListener('click', () => { itemViewPanel.classList.remove('hidden-panel'); updateItemViewPanel(); });
-    document.getElementById('btn-close-items').addEventListener('click', () => itemViewPanel.classList.add('hidden-panel'));
-
-    // ============ 天赋发放 ============
-    function giveFreeTalent() {
-        const available = TALENTS.filter(t => !player.talents.some(pt => pt.id === t.id));
-        if (available.length === 0) return;
-        const talent = available[Math.floor(Math.random() * available.length)];
-        player.talents.push(talent);
-        const overlay = document.createElement('div');
-        overlay.className = 'fullscreen-panel';
-        overlay.style.zIndex = '50';
-        overlay.innerHTML = `<div style="text-align:center;color:#f7e05e;font-size:1.4rem;">🎁 开局天赋<br>⭐ ${talent.name}<br><span style="font-size:0.9rem;">${talent.desc}</span></div><button class="btn btn-continue" style="margin-top:16px;">确认</button>`;
-        document.body.appendChild(overlay);
-        overlay.querySelector('button').onclick = () => {
-            overlay.remove();
-            tempAtk = player.attack; tempDef = player.defense; allocPoints = 5;
-            updateAllocUI();
-            allocPanel.classList.remove('hidden-panel');
-        };
-    }
-
-    // ============ 战术选择 ============
-    function showTacticsPanel() {
-        tacticsPanel.classList.remove('hidden-panel');
-        const container = document.getElementById('tactics-options-container');
-        container.innerHTML = '';
-        TACTICS.forEach(tac => {
-            const div = document.createElement('div');
-            div.className = 'tactics-option';
-            div.innerHTML = `<span>${tac.name}</span><span style="font-size:0.7rem;color:#c0b87a;">${tac.desc}</span>`;
-            div.onclick = () => {
-                player.currentTactics = tac;
-                generateOpponentTactics();
-                tacticsPanel.classList.add('hidden-panel');
-                showTacticsResultModal();
-            };
-            container.appendChild(div);
-        });
-    }
-
-    function showTacticsResultModal() {
-        const modal = document.createElement('div');
-        modal.className = 'fullscreen-panel';
-        modal.style.zIndex = '50';
-        modal.innerHTML = `
-            <div class="tactic-card">
-                <h3>你的战术</h3>
-                <div style="color:#f7e05e;">${player.currentTactics.name}</div>
-                <div class="desc">${player.currentTactics.desc}</div>
-            </div>
-            <div class="tactic-card">
-                <h3>对手战术 (${player.opponentType})</h3>
-                <div style="color:#f7e05e;">${player.opponentTactics.name}</div>
-                <div class="desc">${player.opponentTactics.desc}</div>
-            </div>
-            <button class="btn btn-continue" id="btn-start-match" style="margin-top:16px;">⚽ 开始比赛</button>
-        `;
-        document.body.appendChild(modal);
-        document.getElementById('btn-start-match').onclick = () => {
-            modal.remove();
-            startMatch();
-        };
-    }
-
-    // ============ 比赛相关 ============
-    function applyTacticsEffect() {
-        const pt = player.currentTactics;
-        const m = player.match;
-        m.tacticDefBonus = 0; m.tacticAtkMod = 0; m.tacticBreakDisadv = false; m.parkBus = false;
-        switch (pt.id) {
-            case 'press': m.tacticAtkMod = 2; m.tacticDefBonus = -2; if (player.talents.some(t => t.id === 'klopp_hat')) { m.tacticAtkMod += 2; appendOutput('🎩 克洛普棒球帽：突破+4，进攻+4', 'info'); } break;
-            case 'possession': m.tacticAtkMod = 1; m.tacticDefBonus = 1; if (player.talents.some(t => t.id === 'guardiola_board')) { m.tacticAtkMod *= 2; m.tacticDefBonus *= 2; appendOutput('📋 瓜迪奥拉战术板：效果翻倍', 'info'); } break;
-            case 'parkbus': m.tacticDefBonus = 8; m.tacticBreakDisadv = true; m.parkBus = true; if (player.talents.some(t => t.id === 'mourinho_bus')) { m.tacticDefBonus = 12; appendOutput('🚌 穆里尼奥大巴：防守下限12', 'info'); } break;
-            case 'counter': m.tacticDefBonus = 4; m.tacticAtkMod = -4; if (player.talents.some(t => t.id === 'simone_suit')) { m.tacticDefBonus = 6; m.tacticAtkMod = -2; appendOutput('🕴️ 西蒙尼西装：防守+6，进攻-2', 'info'); } break;
-        }
-    }
-
-    async function startMatch() {
-        player.resetForMatch();
-        applyTacticsEffect();
-        const opp = getOpponentStats();
-        player.match.opponent = { attack: opp.attack, defense: opp.defense };
-        player.match.firstAttack = Math.random() > 0.5 ? 'player' : 'opponent';
-        const order = [];
-        for (let i = 0; i < player.match.maxTurns; i++) {
-            order.push(i % 2 === 0 ? player.match.firstAttack : (player.match.firstAttack === 'player' ? 'opponent' : 'player'));
-        }
-        player.match.turnOrder = order;
-        clearOutput();
-        appendOutput('📢 对手 攻面' + opp.attack + ' 防面' + opp.defense + ' | ' + player.match.maxTurns + '回合 (' + player.opponentType + ')', 'phase');
-        appendOutput('先攻：' + (player.match.firstAttack === 'player' ? '你' : '对手'));
-        if (player.match.tacticAtkMod !== 0 || player.match.tacticDefBonus !== 0) {
-            let tacStr = '';
-            if (player.match.tacticAtkMod > 0) tacStr += '进攻+' + player.match.tacticAtkMod + ' ';
-            if (player.match.tacticAtkMod < 0) tacStr += '进攻' + player.match.tacticAtkMod + ' ';
-            if (player.match.tacticDefBonus > 0) tacStr += '防守+' + player.match.tacticDefBonus + ' ';
-            if (player.match.tacticDefBonus < 0) tacStr += '防守' + player.match.tacticDefBonus + ' ';
-            appendOutput('📋 战术效果：' + tacStr, 'info');
-        }
-        await processTurn();
-    }
-
-    async function processTurn() {
-        if (!player.match || player.match.currentTurn >= player.match.maxTurns) { await endMatch(); return; }
-        showScoreBoard();
-        if (player.match.turnOrder[player.match.currentTurn] === 'player') await playerTurn();
-        else await opponentTurn();
-    }
-
-    function showContinueButton() {
-        if (player.match.turnOrder[player.match.currentTurn] === 'player') {
-            if (player.match.adrenalineState === 1) player.match.adrenalineState = 2;
-            else if (player.match.adrenalineState === 2) player.match.adrenalineState = 0;
-        }
-        player.match.currentTurn++;
-        player.match.comebackTriggered = false;
-        setControls([{ text: '继续', action: () => processTurn(), btnClass: 'btn-continue' }]);
-    }
-
-    // --- 玩家回合 ---
-    async function playerTurn() {
-        updateUI();
-        clearOutput();
-        appendOutput('⚡ 第' + (player.match.currentTurn + 1) + '/' + player.match.maxTurns + '回合：你的进攻', 'phase');
-        if (player.talents.some(t => t.id === 'comeback') && player.match.score[0] < player.match.score[1] && !player.match.comebackTriggered) {
-            player.adjustMorale(1);
-            player.match.comebackTriggered = true;
-        }
-        const buttons = [{ text: '🏃 突破', action: () => playerBreak(), btnClass: 'btn-attack' }];
-        player.skills.forEach(s => { if ((s.target === 'break' || s.target === 'any') && player.stamina >= s.cost) buttons.push({ text: `${s.name} ⚡${s.cost}`, action: () => useSkillBreak(s), btnClass: 'btn-attack' }); });
-        player.consumables.forEach((c, i) => { if (c.type === 'active' && player.match.usedConsumables.indexOf(i) === -1) buttons.push({ text: '🧪 ' + c.name, action: () => useConsumable(i) }); });
-        setControls(buttons);
-    }
-
-    async function playerBreak(skillEffect) {
-        const ctx = { advantage: false, disadvantage: false, defBonus: 0, atkBonus: 0, oppDefReduction: 0, diceFloor: 0, autoSuccess: false, fakePass: false, scorpionKick: false, counterBreak: false };
-        resolveSkillEffect(skillEffect, ctx);
-        ctx.atkBonus += player.match.tacticAtkMod;
-        if (player.match.tacticBreakDisadv) ctx.disadvantage = true;
-        if (player.match.tacticDefBonus) ctx.defBonus += player.match.tacticDefBonus;
-        if (player.currentTactics && player.currentTactics.id === 'press' && player.talents.some(t => t.id === 'klopp_hat')) { ctx.atkBonus += 4; appendOutput('🎩 克洛普棒球帽：进攻+4', 'info'); }
-        if (ctx.autoSuccess) { appendOutput('💫 反越位成功！直面门将！', 'crit'); player.match.lastBreakSuccess = true; await sleep(800); showShotOptions(); return; }
-        const extra = player.getTotalBonus('break');
-        if (player.talents.some(t => t.id === 'thinker')) { ctx.atkBonus += 5; ctx.disadvantage = true; appendOutput('💭 思考人生：进攻+5，劣势', 'info'); }
-        ctx.atkBonus += extra;
-        if (player.match.adrenalineState === 1) ctx.atkBonus += 2;
-        if (player.match.adrenalineState === 2) ctx.atkBonus -= 2;
-
-        const roll = await rollDice(player.attack, '你突破', ctx.advantage, ctx.disadvantage, ctx.diceFloor, true);
-        if (roll === 20) { player.adjustMorale(1); showBigResult('🌟 完美突破！', true); player.match.lastBreakSuccess = true; await sleep(800); showShotOptions(); return; }
-        if (roll === 1) { player.adjustMorale(-1); showBigResult('💥 突破失误...', false); player.match.lastBreakSuccess = false; if (ctx.fakePass) { player.match.fakePassActive = true; await sleep(800); playerShot(null); return; } await sleep(800); showContinueButton(); return; }
-
-        const total = roll + ctx.atkBonus;
-        const oppDefSkill = getOpponentSkill('defend');
-        appendOutput('⚠️ 对手防守【' + oppDefSkill.name + '】 +' + oppDefSkill.bonus, 'crit');
-        const oppRoll = await rollDice(player.match.opponent.defense, '对手防守', false, false, 0, false, false);
-        if (oppRoll === 20) { player.adjustMorale(-1); showBigResult('🌟 对手完美防守！', false); player.match.lastBreakSuccess = false; if (ctx.fakePass) { player.match.fakePassActive = true; await sleep(800); playerShot(null); return; } await sleep(800); showContinueButton(); return; }
-        if (oppRoll === 1) { player.adjustMorale(1); showBigResult('💥 对手失误！突破成功！', true); player.match.lastBreakSuccess = true; await sleep(800); showShotOptions(); return; }
-
-        const oppTotal = oppRoll + oppDefSkill.bonus;
-        showVs('<b style="color:#4dff4d">' + total + '</b> (骰' + roll + '+' + ctx.atkBonus + ')', '<b style="color:#ff6666">' + oppTotal + '</b> (骰' + oppRoll + '+技' + oppDefSkill.bonus + ')');
-        if (total > oppTotal) { showBigResult('✅ 突破成功！', true); player.match.lastBreakSuccess = true; await sleep(1000); showShotOptions(); }
-        else { showBigResult('❌ 被抢断', false); player.match.lastBreakSuccess = false; if (ctx.fakePass) { player.match.fakePassActive = true; await sleep(800); playerShot(null); return; } await sleep(1000); showContinueButton(); }
-    }
-
-    function showShotOptions() {
-        const buttons = [{ text: '🥅 射门', action: () => playerShot(null), btnClass: 'btn-attack' }];
-        player.skills.forEach(s => { if ((s.target === 'shot' || s.target === 'any') && player.stamina >= s.cost) buttons.push({ text: `${s.name} ⚡${s.cost}`, action: () => useSkillShot(s), btnClass: 'btn-attack' }); });
-        setControls(buttons);
-    }
-
-    async function playerShot(skillEffect) {
-        const ctx = { advantage: false, disadvantage: false, defBonus: 0, atkBonus: 0, oppDefReduction: 0, diceFloor: 0, oppDisadvantage: false, scorpionKick: false };
-        resolveSkillEffect(skillEffect, ctx);
-        if (player.match.fakePassActive) { ctx.atkBonus -= 2; appendOutput('🎭 假传真射惩罚：进攻-2', 'info'); player.match.fakePassActive = false; }
-        ctx.atkBonus += player.match.shotBonus;
-        if (player.match.shotBonus > 0) { appendOutput('⚡ 闪电反击加成：进攻+' + player.match.shotBonus, 'info'); player.match.shotBonus = 0; }
-        if (ctx.scorpionKick) player.match.scorpionActive = true;
-        const extra = player.getTotalBonus('shot');
-        if (player.talents.some(t => t.id === 'thinker')) { ctx.atkBonus += 5; ctx.disadvantage = true; appendOutput('💭 思考人生：射门+5，劣势', 'info'); }
-        ctx.atkBonus += extra;
-        if (player.match.adrenalineState === 1) ctx.atkBonus += 2;
-        if (player.match.adrenalineState === 2) ctx.atkBonus -= 2;
-
-        const roll = await rollDice(player.attack, '你射门', ctx.advantage, ctx.disadvantage, ctx.diceFloor, true);
-        if (roll === 20) { player.adjustMorale(1); showBigResult('🌟 世界波！进球！', true); showGoalAnimation(true); player.match.score[0]++; player.match.scorpionActive = false; await sleep(800); showContinueButton(); return; }
-        if (roll === 1) { player.adjustMorale(-1); showBigResult('💥 打飞了...', false); player.match.scorpionActive = false; await sleep(800); showContinueButton(); return; }
-
-        const total = roll + ctx.atkBonus;
-        const oppRoll = await rollDice(player.match.opponent.defense, '门将', false, ctx.oppDisadvantage, 0, false, false);
-        if (oppRoll === 20) { player.adjustMorale(-1); showBigResult('🌟 神扑！', false); player.match.scorpionActive = false; await sleep(800); showContinueButton(); return; }
-        if (oppRoll === 1) { player.adjustMorale(1); showBigResult('💥 门将失误！进球！', true); showGoalAnimation(true); player.match.score[0]++; player.match.scorpionActive = false; await sleep(800); showContinueButton(); return; }
-
-        const oppDef = player.match.opponent.defense - ctx.oppDefReduction;
-        const oppTotal = oppRoll + oppDef;
-        showVs('<b style="color:#4dff4d">' + total + '</b> (骰' + roll + '+' + ctx.atkBonus + ')', '<b style="color:#ff6666">' + oppTotal + '</b> (扑' + oppRoll + '+防' + oppDef + ')');
-        if (total > oppTotal) { showBigResult('⚽ 进球！', true); showGoalAnimation(true); player.match.score[0]++; player.adjustMorale(1); }
-        else { showBigResult('😞 被扑出', false); }
-        player.match.scorpionActive = false;
-        await sleep(1000);
-        showContinueButton();
-    }
-
-    // --- 对手回合 ---
-    async function opponentTurn() {
-        clearOutput();
-        appendOutput('🛡️ 第' + (player.match.currentTurn + 1) + '/' + player.match.maxTurns + '回合：对手进攻', 'phase');
-        if (player.talents.some(t => t.id === 'comeback') && player.match.score[0] < player.match.score[1] && !player.match.comebackTriggered) {
-            player.adjustMorale(1); player.match.comebackTriggered = true;
-        }
-        const oppSkill = getOpponentSkill('attack');
-        appendOutput('⚠️ 对手突破【' + oppSkill.name + '】 +' + oppSkill.bonus, 'crit');
-        const buttons = [{ text: '🛡️ 防守', action: () => opponentAttack(oppSkill.bonus, null), btnClass: 'btn-defend' }];
-        player.skills.forEach(s => { if ((s.target === 'defend' || s.target === 'any') && player.stamina >= s.cost) buttons.push({ text: `${s.name} ⚡${s.cost}`, action: () => useSkillDefend(s, oppSkill.bonus), btnClass: 'btn-defend' }); });
-        player.consumables.forEach((c, i) => { if (c.type === 'active' && player.match.usedConsumables.indexOf(i) === -1) buttons.push({ text: '🧪 ' + c.name, action: () => useConsumable(i) }); });
-        setControls(buttons);
-    }
-
-    async function opponentAttack(oppAtkBonus, playerSkill) {
-        const ctx = { advantage: false, disadvantage: false, defBonus: 0, atkBonus: 0, diceFloor: 0 };
-        resolveSkillEffect(playerSkill ? playerSkill.effect : null, ctx);
-        ctx.defBonus += player.match.tacticDefBonus;
-        if (player.match.parkBus && player.match.tacticDefBonus >= 8) ctx.diceFloor = Math.max(ctx.diceFloor, player.match.tacticDefBonus);
-        const defExtra = player.getTotalBonus('defend');
-        ctx.defBonus += defExtra;
-        let disadv = ctx.disadvantage || player.match.defendDisadvantage;
-        if (player.match.defendDisadvantage) { appendOutput('⚡ 上次闪电反击失败，防守劣势', 'info'); player.match.defendDisadvantage = false; }
-
-        const oppRoll = await rollDice(player.match.opponent.attack, '对手突破', false, false, 0, false, false);
-        if (oppRoll === 20) { player.adjustMorale(-1); showBigResult('🌟 对手犀利突破！', false); await sleep(800); await oppShot(); return; }
-        if (oppRoll === 1) { player.adjustMorale(1); showBigResult('💥 对手失误！断球！', true); if (player.talents.some(t => t.id === 'counter_talent')) { player.adjustMorale(1); appendOutput('📯 反击嗅觉：士气+1', 'info'); } await sleep(800); showContinueButton(); return; }
-
-        const oppTotal = oppRoll + oppAtkBonus;
-        const defRoll = await rollDice(player.defense, '你防守', ctx.advantage, disadv, ctx.diceFloor, true);
-        if (defRoll === 20) { player.adjustMorale(1); showBigResult('🌟 完美防守！', true); if (player.talents.some(t => t.id === 'counter_talent')) { player.adjustMorale(1); appendOutput('📯 反击嗅觉：士气+1', 'info'); } if (playerSkill && playerSkill.effect === 'counterBreak') { await sleep(800); await counterBreakAttempt(); return; } await sleep(800); showContinueButton(); return; }
-        if (defRoll === 1) { player.adjustMorale(-1); showBigResult('💥 防守失误！', false); await sleep(800); await oppShot(); return; }
-
-        const defTotal = defRoll + ctx.defBonus;
-        showVs('<b style="color:#ff6666">' + oppTotal + '</b> (骰' + oppRoll + '+技' + oppAtkBonus + ')', '<b style="color:#4dff4d">' + defTotal + '</b> (骰' + defRoll + '+防' + ctx.defBonus + ')');
-        if (defTotal > oppTotal) { showBigResult('💪 断球成功！', true); if (player.talents.some(t => t.id === 'counter_talent')) { player.adjustMorale(1); appendOutput('📯 反击嗅觉：士气+1', 'info'); } if (playerSkill && playerSkill.effect === 'counterBreak') { await sleep(1000); await counterBreakAttempt(); return; } await sleep(1000); showContinueButton(); }
-        else { showBigResult('⚠️ 对手突破！', false); await sleep(1000); await oppShot(); }
-    }
-
-    async function counterBreakAttempt() {
-        appendOutput('⚡ 反击突破！（进攻+2，优势）', 'crit');
-        const roll = await rollDice(player.attack, '反击', true, false, 0, true);
-        if (roll === 20) { showBigResult('⚡ 反击完美突破！', true); player.match.lastBreakSuccess = true; player.match.shotBonus = 2; await sleep(800); showShotOptions(); return; }
-        if (roll === 1) { showBigResult('💥 反击失误', false); player.match.lastBreakSuccess = false; player.match.defendDisadvantage = true; appendOutput('⚡ 反击失败，下次防守劣势', 'miss'); await sleep(800); showContinueButton(); return; }
-        const total = roll + 2;
-        const oppRoll = await rollDice(player.match.opponent.defense, '对手防守', false, false, 0, false, false);
-        showVs('<b style="color:#4dff4d">' + total + '</b> (骰' + roll + '+2)', '<b style="color:#ff6666">' + oppRoll + '</b> (骰' + oppRoll + ')');
-        if (total > oppRoll) { showBigResult('⚡ 反击突破成功！', true); player.match.lastBreakSuccess = true; player.match.shotBonus = 2; appendOutput('⚡ 射门进攻+2', 'info'); await sleep(1000); showShotOptions(); }
-        else { showBigResult('⚡ 反击被阻断', false); player.match.lastBreakSuccess = false; await sleep(1000); showContinueButton(); }
-    }
-
-    async function oppShot() {
-        const shotSkill = getOpponentSkill('shot');
-        appendOutput('⚠️ 对手射门【' + shotSkill.name + '】 +' + shotSkill.bonus, 'crit');
-        const roll = await rollDice(player.match.opponent.attack, '对手射门', false, false, 0, false, false);
-        if (roll === 20) { player.adjustMorale(-1); showBigResult('🌟 绝对死角...进球', false); showGoalAnimation(false); player.match.score[1]++; if (player.match.parkBus) player.adjustMorale(-1); await sleep(800); showContinueButton(); return; }
-        if (roll === 1) { player.adjustMorale(1); showBigResult('💥 打偏了！', true); await sleep(800); showContinueButton(); return; }
-        const oppTotal = roll + shotSkill.bonus;
-        appendOutput('你扑救...');
-        const defRoll = await rollDice(player.defense, '你扑救', false, false, 0, true);
-        if (defRoll === 20) { player.adjustMorale(1); showBigResult('🌟 神扑！', true); await sleep(800); showContinueButton(); return; }
-        if (defRoll === 1) { player.adjustMorale(-1); showBigResult('💥 扑救失误...丢球', false); showGoalAnimation(false); player.match.score[1]++; if (player.match.parkBus) player.adjustMorale(-1); await sleep(800); showContinueButton(); return; }
-        const defTotal = defRoll;
-        showVs('<b style="color:#ff6666">' + oppTotal + '</b> (骰' + roll + '+技' + shotSkill.bonus + ')', '<b style="color:#4dff4d">' + defTotal + '</b> (扑' + defRoll + ')');
-        if (defTotal > oppTotal) { showBigResult('🧤 扑救成功！', true); }
-        else { showBigResult('💔 球进了...', false); showGoalAnimation(false); player.match.score[1]++; player.adjustMorale(-1); if (player.match.parkBus) player.adjustMorale(-1); }
-        await sleep(1000);
-        showContinueButton();
-    }
-
-    // --- 技能使用 ---
-    async function useSkillBreak(skill) { if (player.stamina < skill.cost) return; player.stamina -= skill.cost; updateUI(); appendOutput('✨ 使用了 ' + skill.name + '！', 'info'); await playerBreak(skill.effect); }
-    async function useSkillShot(skill) { if (player.stamina < skill.cost) return; player.stamina -= skill.cost; updateUI(); appendOutput('✨ 使用了 ' + skill.name + '！', 'info'); await playerShot(skill.effect); }
-    async function useSkillDefend(skill, oppAtkBonus) { if (player.stamina < skill.cost) return; player.stamina -= skill.cost; updateUI(); appendOutput('✨ 使用了 ' + skill.name + '！', 'info'); await opponentAttack(oppAtkBonus, skill); }
-
-    async function useConsumable(i) {
-        const c = player.consumables[i];
-        player.match.usedConsumables.push(i);
-        appendOutput('🧪 使用了 ' + c.name, 'info');
-        if (c.id === 'drink') { player.stamina = Math.min(player.stamina + 8, player.effectiveMaxStamina); appendOutput('体能+8 → ' + player.stamina, 'info'); }
-        if (c.id === 'adrenaline') { player.match.adrenalineState = 1; appendOutput('💉 肾上腺素！本场攻防+2，下场攻防-2', 'crit'); }
-        updateUI();
-        if (player.match.turnOrder[player.match.currentTurn] === 'player') await playerTurn();
-        else await opponentTurn();
-    }
-
-    // --- 点球 ---
-    async function penaltyShootout() {
-        clearOutput();
-        appendOutput('⚽ 比分持平！进入点球大战！', 'phase');
-        penaltyAnimating = true;
-        let pWins = 0, oWins = 0;
-        const pFloor = player.talents.some(t => t.id === 'penalty_expert') ? 5 : 0;
-        for (let i = 0; i < 5; i++) {
-            let pRoll = Math.floor(Math.random() * 20) + 1;
-            let oRoll = Math.floor(Math.random() * 20) + 1;
-            if (player.talents.some(t => t.id === 'lucky') && pRoll < 4) pRoll = 4;
-            if (pFloor > 0) pRoll = Math.max(pRoll, pFloor);
-            appendOutput(`--- 第${i+1}轮 --- 你:${pRoll} 对手:${oRoll}`, pRoll > oRoll ? 'goal' : (pRoll < oRoll ? 'miss' : 'info'));
-            if (pRoll > oRoll) pWins++;
-            else if (oRoll > pRoll) oWins++;
-            if (pWins > oWins + (5 - i - 1) || oWins > pWins + (5 - i - 1)) break;
-            await sleep(400);
-        }
-        while (pWins === oWins) {
-            let pRoll = Math.floor(Math.random() * 20) + 1;
-            let oRoll = Math.floor(Math.random() * 20) + 1;
-            if (player.talents.some(t => t.id === 'lucky') && pRoll < 4) pRoll = 4;
-            if (pFloor > 0) pRoll = Math.max(pRoll, pFloor);
-            appendOutput(`⚡ 突然死亡 你:${pRoll} 对手:${oRoll}`, pRoll > oRoll ? 'goal' : (pRoll < oRoll ? 'miss' : 'info'));
-            if (pRoll > oRoll) pWins++;
-            else if (oRoll > pRoll) oWins++;
-            await sleep(400);
-        }
-        penaltyAnimating = false;
-        return pWins > oWins;
-    }
-
-    // --- 比赛结束 ---
-    async function endMatch() {
-        updateUI();
-        let playerWon;
-        if (player.match.score[0] === player.match.score[1]) playerWon = await penaltyShootout();
-        else playerWon = player.match.score[0] > player.match.score[1];
-        const isKey = player.match.isKeyMatch;
-        let expGain = playerWon ? (isKey ? 60 : 30) : (isKey ? 20 : 10);
-        if (player.talents.some(t => t.id === 'genius')) expGain = Math.floor(expGain * 1.5);
-        if (player.talents.some(t => t.id === 'hardworking')) expGain += 20;
-        player.exp += expGain;
-        if (playerWon) player.totalWins++;
-        else { player.totalLosses++; const netGoals = Math.max(1, player.match.score[1] - player.match.score[0]); player.lives -= netGoals; showLifeLossAnimation(); appendOutput('💔 失球扣心 -' + netGoals, 'miss'); }
-        player.matchesPlayed++;
-        player.endMatchRecovery();
-        const badge = document.querySelector('.key-match-badge'); if (badge) badge.remove();
-        const overlay = document.createElement('div');
-        overlay.className = 'fullscreen-panel';
-        overlay.style.zIndex = '50';
-        overlay.innerHTML = `<div class="result-card"><div style="color:${playerWon ? '#ffd966' : '#ff4444'}" class="result-label">${playerWon ? '🏆 胜利' : '💔 失败'}${isKey ? ' (关键战)' : ''}</div><div class="result-score">${player.match.score[0]} - ${player.match.score[1]}</div><div style="margin-top:8px;font-size:0.85rem;color:#e0d7b0;">获得 ${expGain} 经验</div></div><button class="btn btn-continue" id="btn-end-match-continue">继续</button>`;
-        document.body.appendChild(overlay);
-        updateUI();
-        document.getElementById('btn-end-match-continue').onclick = () => {
-            overlay.remove();
-            if (player.lives <= 0) {
-                clearOutput();
-                appendOutput('💀 你的生涯结束了...', 'crit');
-                appendOutput('总战绩：' + player.totalWins + '胜 ' + player.totalLosses + '负', 'info');
-                setControls([{ text: '🔄 重新开始', action: () => location.reload() }]);
-            } else {
-                if (player.matchesPlayed >= 10) handleLeagueProgress();
-                else { player.currentShopItems = generateShopItems(); renderProgressAndShop(); }
-            }
-        };
-    }
-
-    function handleLeagueProgress() {
-        if (player.totalWins >= 6) { if (player.currentLeague < 3) player.currentLeague++; appendOutput('🎉 晋级！进入 ' + LEAGUE_NAMES[player.currentLeague] + '！', 'goal'); }
-        else appendOutput('胜场不足(' + player.totalWins + '/6)，维持' + LEAGUE_NAMES[player.currentLeague], 'info');
-        player.matchesPlayed = 0; player.totalWins = 0; player.totalLosses = 0;
-        player.generateKeyMatches();
-        player.currentShopItems = generateShopItems();
-        updateUI();
-        renderProgressAndShop();
-    }
-
-    function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
-
-    // ============ 初始化 ============
-    document.getElementById('btn-start-game').addEventListener('click', () => {
-        const name = document.getElementById('player-name-input').value.trim();
-        player = new Player(name);
-        coverPanel.classList.add('hidden-panel');
-        introPanel.classList.remove('hidden-panel');
-    });
-
-    document.getElementById('btn-close-intro').addEventListener('click', () => {
-        introPanel.classList.add('hidden-panel');
-        if (!freeTalentGiven) {
-            freeTalentGiven = true;
-            giveFreeTalent();
-        } else {
-            tempAtk = player.attack; tempDef = player.defense; allocPoints = 5;
-            updateAllocUI();
-            allocPanel.classList.remove('hidden-panel');
-        }
-    });
+// ============ Init ============
+document.getElementById('btn-start-game').addEventListener('click',()=>{const n=document.getElementById('player-name-input').value.trim();player=new Player(n);coverPanel.classList.add('hidden-panel');introPanel.classList.remove('hidden-panel');});
+document.getElementById('btn-close-intro').addEventListener('click',()=>{introPanel.classList.add('hidden-panel');if(!freeTalentGiven){freeTalentGiven=true;giveFreeTalent();}else{tempAtk=player.attack;tempDef=player.defense;allocPoints=5;updateAllocUI();allocPanel.classList.remove('hidden-panel');}});
 })();
 </script>
 </body>
